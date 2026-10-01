@@ -25,3 +25,13 @@ CSV files here are versioned candidate artifacts. They are not automatically ext
 - SHA-256: `423a5c9fccf315023df363ad2c9f900daafdc1f8e927ea729ab01136edb7c210`.
 - Method: gate an incremental support-pooled residual correction using cross-seed correction dispersion.
 - The discovery-selected 90th-percentile gate worsened confirmation champion-OOF RMSE from 0.123932 to 0.124194. Original experiment artifact: `experiments/shadow_candidates/phase6_uncertainty_gate.csv`.
+
+## `next_submission_treeleaf_halfstrength.csv`
+
+- Status: `SHADOW`; valid for manual Kaggle submission, but not promoted over the protected champion.
+- SHA-256: `962cac25e3ec94a811ae539cf5bbc0133b42033bf6f61ea3ea9a0aee2ca16cc7`.
+- Immutable byte-identical copy: `experiments/shadow_candidates/phase7_treeleaf_halfstrength.csv`.
+- Method: protected champion log prediction plus half of a top-5 XGBoost tree-leaf residual correction; leaf-match power 2 and effective-neighbor shrinkage 10. Residual targets use four-fold inner-OOF XGBoost predictions.
+- Validation: saved confirmation seeds 2038/2039/2040; row-averaged RMSE 0.123932 to 0.123106 overall and 0.116487 to 0.116265 excluding IDs 524/1299. Outlier-excluded paired-bootstrap P(improvement)=82.35%; its 95% interval crosses zero. Parent validation uses fixed crossfit OOF, not repeated refits of the complete champion.
+- Test audit: correlation 0.999820; mean absolute log delta 0.005315; maximum absolute log delta 0.064458; largest change +$36,131 on ID 2683. Full top-ten up/down movers and nearest peers are in `experiments/phase7_treeleaf_halfstrength_report.json`.
+- Reproduction: `python experiments/phase7_treeleaf_halfstrength.py`. It refuses to overwrite the protected champion or existing candidate artifacts.

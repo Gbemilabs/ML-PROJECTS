@@ -88,6 +88,16 @@ The current external champion is archived at `experiments/champion/submission_0.
 
 ## Current Candidates
 
+### Next Submission Shadow
+
+- CSV: `submissions/candidates/next_submission_treeleaf_halfstrength.csv` (1,459 rows; valid `Id,SalePrice` schema).
+- Immutable copy: `experiments/shadow_candidates/phase7_treeleaf_halfstrength.csv`.
+- SHA-256: `962cac25e3ec94a811ae539cf5bbc0133b42033bf6f61ea3ea9a0aee2ca16cc7`.
+- Status: **SHADOW**. Do not replace the 0.12374 champion based on these local results; no Kaggle score is available.
+- Confirmation evidence at half strength: three seeds all improve; row-averaged RMSE 0.123932 → 0.123106 overall and 0.116487 → 0.116265 excluding IDs 524/1299. Excluded-row paired-bootstrap probability is 82.35%, but its 95% interval crosses zero.
+- Movement audit: mean absolute log delta 0.005315, maximum 0.064458, maximum price change +$36,131 (ID 2683, NoRidge, quality 9, 3,500 sq ft, one same-neighborhood/quality training home). ID 2550 moves -$14,319 toward known Edwards examples.
+- Exact reproduction: `python experiments/phase7_treeleaf_halfstrength.py`.
+
 - Root `submission.csv` is the current user-reported external champion, RMSLE 0.12374 / approximately rank 759, hash `52e1309c46960f1d2c411dae3a9148de6db21a00ed264629097edd9cf7a756f8`.
 - `submissions/candidates/phase5_support_floor_hierarchy.csv` is the exact versioned copy of root.
 - `experiments/champion/submission_0.12374.csv` is the current immutable external champion; `experiments/champion/submission_0.12654.csv` is the previous champion.

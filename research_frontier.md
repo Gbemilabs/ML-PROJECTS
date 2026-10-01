@@ -22,12 +22,15 @@
 | Support-pooled hierarchy transfer | User-reported public RMSLE 0.12374 / ~#759; local champion-OOF transfer 0.125466 to 0.124070 across three confirmation seeds | Current external champion by user report; local validation uses fixed parent seed-42 OOF plus cross-fitted correction | Submission ID/API query and repeated full-model refits unavailable |
 | Baseline + XGBoost + GradientBoosting | Nested blend mean fold RMSE 0.123571 vs 0.124471, but std/worst fold worsened | Low; 5 fixed folds, selection on same OOF | Repeated/nested blend confirmation and champion comparison |
 | Edwards new-construction specialist | Two examples and one test analogue; exploratory correction reduced repeated OOF error | Very low; selected after residual/test inspection | Independent support, nested selection, and external value |
+| Half-strength tree-leaf residual shadow | Confirmation row-averaged RMSE 0.123932 → 0.123106 overall and 0.116487 → 0.116265 excluding IDs 524/1299; all three seeds improve at scale 0.5 | Low-to-moderate; saved confirmation only, fixed parent OOF; outlier-excluded bootstrap interval crosses zero | Repeated full-champion refits and external score; test ID 2683 moves +$36.1k |
+| Dual numeric/ordinal feature view | Adding numeric views while retaining categories improved outlier-excluded XGBoost RMSE across seeds 42/2038/2039; all-row benefit was mixed | Low; three-seed XGBoost-only screen and one worst-fold regression | Fresh nested confirmation against the full champion |
 
 ## UNRESOLVED
 
 | Research area | What is known | Confidence | What remains unknown |
 |---|---|---|---|
 | Current champion repeated validation | Current champion OOF is a crossfit reconstruction across five phase-five correction seeds over a fixed parent seed-42 OOF | Moderate | Repeated/nested refits of the full champion pipeline and exact Kaggle submission ID |
+| Exact parent champion refit | 0.12374 test CSV exactly matches the saved Phase Five candidate/components; OOF equals the fixed 0.12654 seed-42 parent OOF plus averaged half-scale correction | High for saved-artifact lineage; no fresh end-to-end reproduction in this session | Repeated/nested refits of canonicalized CatBoost/XGBoost parent and residual correction on identical outer folds |
 | Residual correction vs champion | Nested Huber and hierarchy trials use regularized XGBoost, not the 70/30 champion | High | Whether any correction transfers to the champion ensemble |
 | Error families | Large residuals and subgroup summaries exist for baseline | Moderate for diagnostics | Stable error families under independent folds and current external champion |
 | Train/test shift | The near-perfect AUC was an artifact; corrected AUC is near chance | High | Adversarial classifier power for nonlinear interactions after corrected inputs |
@@ -47,6 +50,7 @@
 - Global intercept, affine, Ridge, and isotonic calibration all worsened confirmation RMSE; identity remained best.
 - Phase-six tree-leaf residual neighbors: aggregate gain 0.001295, but outlier-excluded gain only 0.000089 with paired-bootstrap interval crossing zero; one test house changes +$74,668.
 - Phase-six quality/age residual hierarchy: confirmation RMSE worsened 0.123932 to 0.124438; discovery selected no age interaction.
+- Full-strength tree-leaf correction: ordinary-row gain is not supported by paired bootstrap; keep the separately generated half-strength file as `SHADOW`, not `CHALLENGER`.
 
 ## INVALIDATED
 
@@ -56,6 +60,7 @@
 
 - All shadow candidates, including `experiments/shadow_candidates/hierarchical_residual_xgb.csv`.
 - Phase-six uncertainty and tree-leaf shadow CSVs are rejected and unsubmitted.
+- `submissions/candidates/next_submission_treeleaf_halfstrength.csv` is a new, valid Phase Seven shadow with no external score; its test shifts and nearest peers are audited in `experiments/phase7_treeleaf_halfstrength_report.json`.
 - The local Huber residual result has not been compared against a repeated/nested 70/30 champion OOF.
 - Current champion repeated-seed OOF is not yet available.
 

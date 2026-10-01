@@ -50,3 +50,10 @@ This timeline follows the preserved artifacts and experiment-log order. The repo
 - Champion OOF error mapping found no ID trend; old low-quality residual groups were unstable under nested correction. Global intercept/affine/Ridge/isotonic calibration all degraded confirmation.
 - Global champion-output calibration (intercept, affine, Ridge, isotonic) also failed confirmation; identity predictions remained best.
 - No newer Kaggle score is available. Highest-value next step is matched repeated/nested retraining of the full champion/correction system, then external verification when Kaggle access is available.
+
+## 8. Phase Seven Candidate and Lineage Audit
+
+- Phase Five transfer code loads the 0.12654 submission/seed-42 OOF, not the current 0.12374 artifact. The current champion CSV is byte-identical to the archived Phase Five candidate and saved test components match exactly. Its OOF equals the fixed parent OOF plus 0.5 times the averaged residual correction, with five correction predictions per row.
+- A dual categorical-plus-numeric/count and ordinal-grade view improved outlier-excluded regularized-XGBoost RMSE across three matched seeds; all-row RMSE improved on each, marginally on seed 2039, while the worst fold regressed on seed 42. This remains an XGBoost-only representation lead.
+- Generated `submissions/candidates/next_submission_treeleaf_halfstrength.csv` and immutable shadow copy (SHA-256 `962cac25e3ec94a811ae539cf5bbc0133b42033bf6f61ea3ea9a0aee2ca16cc7`). At scale 0.5, all three saved confirmation seeds improve all-row and outlier-excluded RMSE; excluded-row paired-bootstrap uncertainty crosses zero, so status remains `SHADOW`.
+- Largest audited move is +$36,131 for NoRidge ID 2683, quality 9 / 3,500 sq ft with one matching neighborhood-quality training example. ID 2550 moves -$14,319 and is close to the known Edwards examples. No public score is claimed; Kaggle API access remains unavailable.

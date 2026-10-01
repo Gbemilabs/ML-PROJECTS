@@ -62,7 +62,21 @@ A broader fold-local target encoding over Neighborhood x OverallQual x SaleType 
 
 The canonicalized full-data submission (`experiments/canonicalized_baseline_submission.csv`) changes predictions materially: mean log-price shift -0.010622 and mean absolute shift 0.023004 against the historical submission. For test ID 2550, historical and canonicalized prices are about $264,246 and $281,091. Training-side preprocessed feature values exactly match the historical pipeline. The user confirmed this file was the submission that earned 0.12654 / ~#1084; it is preserved under `experiments/champion/`. Kaggle CLI and credentials are absent, so the result could not be independently queried.
 
-## Decisions
+## Current Candidate: Phase Seven Shadow
+
+- New submission-ready shadow: `submissions/candidates/next_submission_treeleaf_halfstrength.csv`; immutable byte-identical copy: `experiments/shadow_candidates/phase7_treeleaf_halfstrength.csv`.
+- SHA-256: `962cac25e3ec94a811ae539cf5bbc0133b42033bf6f61ea3ea9a0aee2ca16cc7`. Both files pass the exact `Id,SalePrice` schema, 1,459-row test-ID alignment, uniqueness, finite-value, and positive-price checks.
+- Method: protected champion log price plus 0.5 times a top-5 XGBoost tree-leaf residual correction (power 2, shrinkage 10). Full-data correction residuals use four-fold inner-OOF regularized-XGBoost predictions (`random_state=2041`); the final leaf model is fit on all training data.
+- On saved confirmation seeds 2038/2039/2040, scale 0.5 improves all-row RMSE from 0.123932 to 0.123369/0.123012/0.123162 and outlier-excluded RMSE from 0.116487 to 0.116426/0.116240/0.116368. Row-averaged candidate RMSE is 0.123106 overall and 0.116265 excluding IDs 524/1299. The outlier-excluded paired-bootstrap probability is 82.35%, with 95% MSE-gain interval [-0.0000553, 0.0000502, 0.0001656]; zero remains inside.
+- Keep status `SHADOW`: validation transfers to fixed champion crossfit OOF rather than repeated refits of the complete champion. No external score is claimed.
+- Test audit: prediction correlation with champion 0.999820; mean absolute log shift 0.005315; maximum absolute log shift 0.064458. Largest movement is ID 2683 (NoRidge, quality 9, 3,500 sq ft), +$36,131 with one same-neighborhood/quality training example. ID 2550 (Edwards, quality 10, 5,095 sq ft) moves -$14,319; its nearest peers include IDs 524 and 1299. Full top-ten up/down movements and nearest-peer details are in `experiments/phase7_treeleaf_halfstrength_report.json`.
+
+## Champion Lineage Audit
+
+- Phase Five transfer scripts load `experiments/champion/submission_0.12654.csv` and `experiments/champion/oof_seed42.csv`, not the current 0.12374 artifact. Their validation transfers from the previous champion.
+- The current 0.12374 CSV is byte-identical to `submissions/candidates/phase5_support_floor_hierarchy.csv`; saved `phase5_support_floor_test_components.csv` candidate prices match exactly. Its archived OOF is exactly the fixed 0.12654 seed-42 parent OOF plus 0.5 times the averaged residual correction (five correction predictions per row). The full original 70/30 parent ensemble was not repeatedly refit for these validations.
+- A dual categorical-plus-numeric/count and ordinal-grade XGBoost screen improved outlier-excluded RMSE across all three matched seeds. All-row RMSE also improved on all three, but only marginally on seed 2039; the worst fold worsened on seed 42. This remains an XGBoost-only lead, not evidence to alter the champion.
+- Adding numeric `Id` produced mixed seed-level results and no stable benefit; it was not added to the candidate.
 ## Phase Six: Champion Challenge
 
 - The cross-seed uncertainty gate failed: confirmation RMSE worsened 0.123932 to 0.124194. Its valid CSV remains a rejected shadow.
@@ -91,9 +105,9 @@ The canonicalized full-data submission (`experiments/canonicalized_baseline_subm
 
 ## Next Experiments
 
-1. Build a new challenge candidate against the 0.12374 champion; do not resubmit or overwrite the champion artifact.
-2. Build repeated/nested OOF of the exact champion recipe and compare model-specific residuals directly.
-3. Investigate model disagreement and market components only with nested validation; phase-six uncertainty and tree-leaf variants have already failed promotion controls.
+1. Retain 0.12374 as champion; the Phase Seven CSV is available as a shadow submission, not a promoted challenger.
+2. Build repeated/nested OOF by refitting the full canonicalized CatBoost/XGBoost parent and Phase Five correction on matched folds.
+3. Confirm the dual numeric/ordinal representation on fresh seeds against the full champion pipeline before using it in a candidate.
 
 ## Reproduction Notes
 
@@ -110,4 +124,5 @@ The canonicalized full-data submission (`experiments/canonicalized_baseline_subm
 - Phase-six age/quality hierarchy: `python experiments/phase6_age_quality_hierarchy.py` (rejected; no candidate emitted).
 - Phase-six champion calibration: `python experiments/phase6_calibration.py` (rejected; identity target calibration remained strongest).
 - The current protected external champion is byte-identical to `experiments/champion/submission_0.12374.csv`; previous champion `experiments/champion/submission_0.12654.csv` is also preserved.
+- Phase Seven candidate and audit: `python experiments/phase7_treeleaf_halfstrength.py` (writes new versioned paths and refuses to overwrite them).
 - Current experiment decisions and scores: `experiments/research_log.csv`.

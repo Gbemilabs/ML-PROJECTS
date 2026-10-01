@@ -1,0 +1,1410 @@
+{
+  "experiment_id": "P7-TREE-LEAF-HALF-STRENGTH-CHALLENGE",
+  "status": "SHADOW",
+  "external_score": null,
+  "candidate_path": "submissions/candidates/next_submission_treeleaf_halfstrength.csv",
+  "versioned_copy_path": "experiments/shadow_candidates/phase7_treeleaf_halfstrength.csv",
+  "candidate_sha256": "962cac25e3ec94a811ae539cf5bbc0133b42033bf6f61ea3ea9a0aee2ca16cc7",
+  "champion_sha256_before_and_after": "52e1309c46960f1d2c411dae3a9148de6db21a00ed264629097edd9cf7a756f8",
+  "method": "Protected champion log prediction plus 0.5 times a top-5 XGBoost tree-leaf similarity residual correction; Ridge-style effective-neighbor shrinkage 10. Residual targets are full-training log-price minus four-fold inner-OOF regularized-XGBoost predictions.",
+  "reproduction_command": "python experiments/phase7_treeleaf_halfstrength.py",
+  "training": {
+    "full_fit_model": "XGBoost_regularized",
+    "residual_inner_oof": "4-fold KFold, shuffle=True, random_state=2041",
+    "leaf_similarity": {
+      "top_k": 5,
+      "power": 2.0,
+      "shrinkage": 10.0
+    },
+    "correction_scale": 0.5
+  },
+  "local_validation": {
+    "parent_champion_oof_rmse": 0.12393249002449601,
+    "correction_scale": 0.5,
+    "confirmation_pooled_rmse_over_repeated_rows": 0.12318140805236638,
+    "confirmation_worst_fold_rmse_over_15_folds": 0.13711896340722796,
+    "confirmation_by_seed": {
+      "2038": {
+        "all_rows_rmse": 0.12336926054412004,
+        "excluding_524_1299_rmse": 0.11642619474709731
+      },
+      "2039": {
+        "all_rows_rmse": 0.12301244703523818,
+        "excluding_524_1299_rmse": 0.1162395354731036
+      },
+      "2040": {
+        "all_rows_rmse": 0.12316225597353489,
+        "excluding_524_1299_rmse": 0.11636766856323341
+      }
+    },
+    "row_averaged_confirmation_paired_bootstrap": {
+      "all": {
+        "base_rmse": 0.12393249002449601,
+        "candidate_rmse": 0.12310591424487488,
+        "paired_bootstrap_probability_mse_improves": 0.97305,
+        "paired_bootstrap_mse_gain_ci95": [
+          -2.585057479822193e-06,
+          0.00019205122134731992,
+          0.00046937525781857434
+        ]
+      },
+      "excluding_524_1299": {
+        "base_rmse": 0.11648659774678295,
+        "candidate_rmse": 0.11626470996800978,
+        "paired_bootstrap_probability_mse_improves": 0.8235,
+        "paired_bootstrap_mse_gain_ci95": [
+          -5.534223593129604e-05,
+          5.0185574895975966e-05,
+          0.0001656129270406868
+        ]
+      }
+    },
+    "validation_scope": "Existing phase-six nested correction OOF; scale 0.5 selected on discovery-only outlier-excluded RMSE. Parent champion OOF is a fixed crossfit reconstruction, not repeated refits of the full parent ensemble."
+  },
+  "test_comparison": {
+    "prediction_correlation_with_champion": 0.9998201371174746,
+    "mean_abs_log_delta": 0.005315282033616388,
+    "median_abs_log_delta": 0.0038683514922033787,
+    "p95_abs_log_delta": 0.014231047735279017,
+    "max_abs_log_delta": 0.06445845671959725,
+    "mean_price_delta": 164.67999526302944,
+    "max_abs_price_delta": 36131.09752570023,
+    "top_10_upward_movers": [
+      {
+        "Id": 2683,
+        "Neighborhood": "NoRidge",
+        "OverallQual": 9,
+        "GrLivArea": 3500,
+        "HouseAge": 13,
+        "SaleCondition": "Normal",
+        "champion_price": 542660.601221345,
+        "candidate_price": 578791.6987470452,
+        "price_delta": 36131.09752570023,
+        "log_delta": 0.06445845671959725,
+        "effective_leaf_neighbors": 4.947000018337775,
+        "neighborhood_quality_training_support": 1,
+        "nearest_training_peers": [
+          {
+            "Id": 799,
+            "distance": 0.5216961914999362,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 3140,
+            "YearBuilt": 2008,
+            "SaleCondition": "Partial",
+            "SalePrice": 485000.0
+          },
+          {
+            "Id": 804,
+            "distance": 0.5499409094049595,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2822,
+            "YearBuilt": 2008,
+            "SaleCondition": "Partial",
+            "SalePrice": 582933.0
+          },
+          {
+            "Id": 232,
+            "distance": 0.5838604257918568,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2794,
+            "YearBuilt": 1995,
+            "SaleCondition": "Normal",
+            "SalePrice": 403000.0
+          },
+          {
+            "Id": 1047,
+            "distance": 0.5964937208181359,
+            "Neighborhood": "StoneBr",
+            "OverallQual": 9,
+            "GrLivArea": 2868,
+            "YearBuilt": 2005,
+            "SaleCondition": "Partial",
+            "SalePrice": 556581.0
+          },
+          {
+            "Id": 528,
+            "distance": 0.6019864192896711,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2713,
+            "YearBuilt": 2008,
+            "SaleCondition": "Partial",
+            "SalePrice": 446261.0
+          }
+        ]
+      },
+      {
+        "Id": 1975,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 10,
+        "GrLivArea": 2470,
+        "HouseAge": 5,
+        "SaleCondition": "Normal",
+        "champion_price": 480203.9140299941,
+        "candidate_price": 497252.164998379,
+        "price_delta": 17048.250968384906,
+        "log_delta": 0.03488636568470122,
+        "effective_leaf_neighbors": 4.9440050197791825,
+        "neighborhood_quality_training_support": 8,
+        "nearest_training_peers": [
+          {
+            "Id": 1374,
+            "distance": 0.1749558349207799,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 10,
+            "GrLivArea": 2633,
+            "YearBuilt": 2001,
+            "SaleCondition": "Normal",
+            "SalePrice": 466500.0
+          },
+          {
+            "Id": 899,
+            "distance": 0.2712278908532078,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2364,
+            "YearBuilt": 2009,
+            "SaleCondition": "Partial",
+            "SalePrice": 611657.0
+          },
+          {
+            "Id": 225,
+            "distance": 0.31153908203199004,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 10,
+            "GrLivArea": 2392,
+            "YearBuilt": 2003,
+            "SaleCondition": "Normal",
+            "SalePrice": 386250.0
+          },
+          {
+            "Id": 478,
+            "distance": 0.4004801376176424,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2643,
+            "YearBuilt": 2006,
+            "SaleCondition": "Normal",
+            "SalePrice": 380000.0
+          },
+          {
+            "Id": 1244,
+            "distance": 0.4413002082103553,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 10,
+            "GrLivArea": 2076,
+            "YearBuilt": 2006,
+            "SaleCondition": "Partial",
+            "SalePrice": 465000.0
+          }
+        ]
+      },
+      {
+        "Id": 2264,
+        "Neighborhood": "StoneBr",
+        "OverallQual": 9,
+        "GrLivArea": 2338,
+        "HouseAge": 1,
+        "SaleCondition": "Partial",
+        "champion_price": 458373.1585795898,
+        "candidate_price": 468972.0229146939,
+        "price_delta": 10598.864335104125,
+        "log_delta": 0.022859455623829496,
+        "effective_leaf_neighbors": 4.936959885324591,
+        "neighborhood_quality_training_support": 5,
+        "nearest_training_peers": [
+          {
+            "Id": 54,
+            "distance": 0.8282241738314117,
+            "Neighborhood": "Veenker",
+            "OverallQual": 9,
+            "GrLivArea": 1842,
+            "YearBuilt": 1981,
+            "SaleCondition": "Normal",
+            "SalePrice": 385000.0
+          },
+          {
+            "Id": 770,
+            "distance": 1.0558048928334358,
+            "Neighborhood": "StoneBr",
+            "OverallQual": 8,
+            "GrLivArea": 3279,
+            "YearBuilt": 2003,
+            "SaleCondition": "Normal",
+            "SalePrice": 538000.0
+          },
+          {
+            "Id": 662,
+            "distance": 1.137594015626084,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2448,
+            "YearBuilt": 1994,
+            "SaleCondition": "Normal",
+            "SalePrice": 402000.0
+          },
+          {
+            "Id": 385,
+            "distance": 1.410045390554554,
+            "Neighborhood": "ClearCr",
+            "OverallQual": 6,
+            "GrLivArea": 1953,
+            "YearBuilt": 1992,
+            "SaleCondition": "Normal",
+            "SalePrice": 240000.0
+          },
+          {
+            "Id": 458,
+            "distance": 1.7433288349466622,
+            "Neighborhood": "ClearCr",
+            "OverallQual": 4,
+            "GrLivArea": 1663,
+            "YearBuilt": 1954,
+            "SaleCondition": "Normal",
+            "SalePrice": 256000.0
+          }
+        ]
+      },
+      {
+        "Id": 1706,
+        "Neighborhood": "Somerst",
+        "OverallQual": 9,
+        "GrLivArea": 2490,
+        "HouseAge": 4,
+        "SaleCondition": "Normal",
+        "champion_price": 434089.5448302109,
+        "candidate_price": 442447.9327443098,
+        "price_delta": 8358.387914098857,
+        "log_delta": 0.019071910579109723,
+        "effective_leaf_neighbors": 4.97088532669318,
+        "neighborhood_quality_training_support": 4,
+        "nearest_training_peers": [
+          {
+            "Id": 899,
+            "distance": 0.21663027801871032,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2364,
+            "YearBuilt": 2009,
+            "SaleCondition": "Partial",
+            "SalePrice": 611657.0
+          },
+          {
+            "Id": 1374,
+            "distance": 0.25220425506877053,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 10,
+            "GrLivArea": 2633,
+            "YearBuilt": 2001,
+            "SaleCondition": "Normal",
+            "SalePrice": 466500.0
+          },
+          {
+            "Id": 478,
+            "distance": 0.37818591855423944,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2643,
+            "YearBuilt": 2006,
+            "SaleCondition": "Normal",
+            "SalePrice": 380000.0
+          },
+          {
+            "Id": 225,
+            "distance": 0.4048116082832778,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 10,
+            "GrLivArea": 2392,
+            "YearBuilt": 2003,
+            "SaleCondition": "Normal",
+            "SalePrice": 386250.0
+          },
+          {
+            "Id": 655,
+            "distance": 0.42587916741748644,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2113,
+            "YearBuilt": 1995,
+            "SaleCondition": "Normal",
+            "SalePrice": 350000.0
+          }
+        ]
+      },
+      {
+        "Id": 2631,
+        "Neighborhood": "StoneBr",
+        "OverallQual": 10,
+        "GrLivArea": 2698,
+        "HouseAge": 0,
+        "SaleCondition": "Partial",
+        "champion_price": 441885.4689990777,
+        "candidate_price": 449521.10046045075,
+        "price_delta": 7635.631461373065,
+        "log_delta": 0.01713202785108329,
+        "effective_leaf_neighbors": 4.9192554930477455,
+        "neighborhood_quality_training_support": 1,
+        "nearest_training_peers": [
+          {
+            "Id": 1047,
+            "distance": 0.2408829921468809,
+            "Neighborhood": "StoneBr",
+            "OverallQual": 9,
+            "GrLivArea": 2868,
+            "YearBuilt": 2005,
+            "SaleCondition": "Partial",
+            "SalePrice": 556581.0
+          },
+          {
+            "Id": 162,
+            "distance": 0.36018894168023485,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2668,
+            "YearBuilt": 2003,
+            "SaleCondition": "Normal",
+            "SalePrice": 412500.0
+          },
+          {
+            "Id": 478,
+            "distance": 0.37619582738525453,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2643,
+            "YearBuilt": 2006,
+            "SaleCondition": "Normal",
+            "SalePrice": 380000.0
+          },
+          {
+            "Id": 592,
+            "distance": 0.3877468609658658,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 10,
+            "GrLivArea": 2296,
+            "YearBuilt": 2008,
+            "SaleCondition": "Normal",
+            "SalePrice": 451950.0
+          },
+          {
+            "Id": 528,
+            "distance": 0.4161488856340288,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2713,
+            "YearBuilt": 2008,
+            "SaleCondition": "Partial",
+            "SalePrice": 446261.0
+          }
+        ]
+      },
+      {
+        "Id": 2292,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 10,
+        "GrLivArea": 2046,
+        "HouseAge": 2,
+        "SaleCondition": "Normal",
+        "champion_price": 452030.4750814808,
+        "candidate_price": 459410.42818417645,
+        "price_delta": 7379.953102695639,
+        "log_delta": 0.016194353727776577,
+        "effective_leaf_neighbors": 4.952186968721612,
+        "neighborhood_quality_training_support": 8,
+        "nearest_training_peers": [
+          {
+            "Id": 1244,
+            "distance": 0.1636298648346386,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 10,
+            "GrLivArea": 2076,
+            "YearBuilt": 2006,
+            "SaleCondition": "Partial",
+            "SalePrice": 465000.0
+          },
+          {
+            "Id": 1360,
+            "distance": 0.2844690617822377,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 1980,
+            "YearBuilt": 2004,
+            "SaleCondition": "Normal",
+            "SalePrice": 315000.0
+          },
+          {
+            "Id": 516,
+            "distance": 0.3056220781481446,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 10,
+            "GrLivArea": 2020,
+            "YearBuilt": 2009,
+            "SaleCondition": "Partial",
+            "SalePrice": 402861.0
+          },
+          {
+            "Id": 481,
+            "distance": 0.30713600515690465,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 1850,
+            "YearBuilt": 2004,
+            "SaleCondition": "Normal",
+            "SalePrice": 326000.0
+          },
+          {
+            "Id": 592,
+            "distance": 0.31720925962746166,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 10,
+            "GrLivArea": 2296,
+            "YearBuilt": 2008,
+            "SaleCondition": "Normal",
+            "SalePrice": 451950.0
+          }
+        ]
+      },
+      {
+        "Id": 2189,
+        "Neighborhood": "Edwards",
+        "OverallQual": 5,
+        "GrLivArea": 3820,
+        "HouseAge": 49,
+        "SaleCondition": "Normal",
+        "champion_price": 236659.46865414348,
+        "candidate_price": 243414.61338156427,
+        "price_delta": 6755.144727420789,
+        "log_delta": 0.02814383326433395,
+        "effective_leaf_neighbors": 4.995750430914442,
+        "neighborhood_quality_training_support": 38,
+        "nearest_training_peers": [
+          {
+            "Id": 849,
+            "distance": 1.2624136767724006,
+            "Neighborhood": "ClearCr",
+            "OverallQual": 6,
+            "GrLivArea": 2358,
+            "YearBuilt": 1908,
+            "SaleCondition": "Normal",
+            "SalePrice": 240000.0
+          },
+          {
+            "Id": 662,
+            "distance": 1.6049489148043705,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2448,
+            "YearBuilt": 1994,
+            "SaleCondition": "Normal",
+            "SalePrice": 402000.0
+          },
+          {
+            "Id": 770,
+            "distance": 1.6064450338947838,
+            "Neighborhood": "StoneBr",
+            "OverallQual": 8,
+            "GrLivArea": 3279,
+            "YearBuilt": 2003,
+            "SaleCondition": "Normal",
+            "SalePrice": 538000.0
+          },
+          {
+            "Id": 1397,
+            "distance": 1.7345139123337021,
+            "Neighborhood": "Timber",
+            "OverallQual": 5,
+            "GrLivArea": 1687,
+            "YearBuilt": 1948,
+            "SaleCondition": "Normal",
+            "SalePrice": 160000.0
+          },
+          {
+            "Id": 458,
+            "distance": 1.742517928514311,
+            "Neighborhood": "ClearCr",
+            "OverallQual": 4,
+            "GrLivArea": 1663,
+            "YearBuilt": 1954,
+            "SaleCondition": "Normal",
+            "SalePrice": 256000.0
+          }
+        ]
+      },
+      {
+        "Id": 2289,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 8,
+        "GrLivArea": 2122,
+        "HouseAge": 0,
+        "SaleCondition": "Partial",
+        "champion_price": 370855.5116796851,
+        "candidate_price": 377088.4999232356,
+        "price_delta": 6232.988243550528,
+        "log_delta": 0.016667332774975462,
+        "effective_leaf_neighbors": 4.950541787050457,
+        "neighborhood_quality_training_support": 27,
+        "nearest_training_peers": [
+          {
+            "Id": 474,
+            "distance": 0.15170457231353573,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 8,
+            "GrLivArea": 1976,
+            "YearBuilt": 2006,
+            "SaleCondition": "Partial",
+            "SalePrice": 440000.0
+          },
+          {
+            "Id": 775,
+            "distance": 0.17118364342933515,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 8,
+            "GrLivArea": 1973,
+            "YearBuilt": 2006,
+            "SaleCondition": "Partial",
+            "SalePrice": 395000.0
+          },
+          {
+            "Id": 679,
+            "distance": 0.291237077906177,
+            "Neighborhood": "StoneBr",
+            "OverallQual": 8,
+            "GrLivArea": 2046,
+            "YearBuilt": 2008,
+            "SaleCondition": "Partial",
+            "SalePrice": 372500.0
+          },
+          {
+            "Id": 586,
+            "distance": 0.34209548949500246,
+            "Neighborhood": "Timber",
+            "OverallQual": 8,
+            "GrLivArea": 2028,
+            "YearBuilt": 2005,
+            "SaleCondition": "Partial",
+            "SalePrice": 369900.0
+          },
+          {
+            "Id": 1438,
+            "distance": 0.3563651701975424,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 8,
+            "GrLivArea": 1932,
+            "YearBuilt": 2008,
+            "SaleCondition": "Partial",
+            "SalePrice": 394617.0
+          }
+        ]
+      },
+      {
+        "Id": 2629,
+        "Neighborhood": "StoneBr",
+        "OverallQual": 10,
+        "GrLivArea": 3390,
+        "HouseAge": 0,
+        "SaleCondition": "Partial",
+        "champion_price": 502132.75885856856,
+        "candidate_price": 508337.36750357575,
+        "price_delta": 6204.608645007189,
+        "log_delta": 0.012280767500865885,
+        "effective_leaf_neighbors": 4.7165992006969395,
+        "neighborhood_quality_training_support": 1,
+        "nearest_training_peers": [
+          {
+            "Id": 59,
+            "distance": 0.5255342878639457,
+            "Neighborhood": "StoneBr",
+            "OverallQual": 10,
+            "GrLivArea": 2945,
+            "YearBuilt": 2006,
+            "SaleCondition": "Partial",
+            "SalePrice": 438780.0
+          },
+          {
+            "Id": 1047,
+            "distance": 0.5384305610752584,
+            "Neighborhood": "StoneBr",
+            "OverallQual": 9,
+            "GrLivArea": 2868,
+            "YearBuilt": 2005,
+            "SaleCondition": "Partial",
+            "SalePrice": 556581.0
+          },
+          {
+            "Id": 350,
+            "distance": 0.5465421079800517,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2728,
+            "YearBuilt": 2005,
+            "SaleCondition": "Partial",
+            "SalePrice": 437154.0
+          },
+          {
+            "Id": 528,
+            "distance": 0.5522632038325396,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2713,
+            "YearBuilt": 2008,
+            "SaleCondition": "Partial",
+            "SalePrice": 446261.0
+          },
+          {
+            "Id": 799,
+            "distance": 0.5807584578710852,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 3140,
+            "YearBuilt": 2008,
+            "SaleCondition": "Partial",
+            "SalePrice": 485000.0
+          }
+        ]
+      },
+      {
+        "Id": 1630,
+        "Neighborhood": "StoneBr",
+        "OverallQual": 8,
+        "GrLivArea": 2522,
+        "HouseAge": 5,
+        "SaleCondition": "Normal",
+        "champion_price": 362007.0695009116,
+        "candidate_price": 367538.86244062474,
+        "price_delta": 5531.792939713167,
+        "log_delta": 0.01516527898041696,
+        "effective_leaf_neighbors": 4.970813198573369,
+        "neighborhood_quality_training_support": 16,
+        "nearest_training_peers": [
+          {
+            "Id": 1045,
+            "distance": 0.4469687268252983,
+            "Neighborhood": "NWAmes",
+            "OverallQual": 8,
+            "GrLivArea": 2524,
+            "YearBuilt": 1981,
+            "SaleCondition": "Normal",
+            "SalePrice": 278000.0
+          },
+          {
+            "Id": 351,
+            "distance": 0.5063966295360083,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 1869,
+            "YearBuilt": 2007,
+            "SaleCondition": "Partial",
+            "SalePrice": 318061.0
+          },
+          {
+            "Id": 988,
+            "distance": 0.5244249960944126,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 1940,
+            "YearBuilt": 2009,
+            "SaleCondition": "Partial",
+            "SalePrice": 395192.0
+          },
+          {
+            "Id": 769,
+            "distance": 0.5556554089662848,
+            "Neighborhood": "CollgCr",
+            "OverallQual": 7,
+            "GrLivArea": 1836,
+            "YearBuilt": 2004,
+            "SaleCondition": "Normal",
+            "SalePrice": 216837.0
+          },
+          {
+            "Id": 1176,
+            "distance": 0.5577210030330105,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2872,
+            "YearBuilt": 1992,
+            "SaleCondition": "Normal",
+            "SalePrice": 285000.0
+          }
+        ]
+      }
+    ],
+    "top_10_downward_movers": [
+      {
+        "Id": 2550,
+        "Neighborhood": "Edwards",
+        "OverallQual": 10,
+        "GrLivArea": 5095,
+        "HouseAge": -1,
+        "SaleCondition": "Partial",
+        "champion_price": 261369.2821722875,
+        "candidate_price": 247050.53548393273,
+        "price_delta": -14318.74668835476,
+        "log_delta": -0.056341147003172734,
+        "effective_leaf_neighbors": 4.7764230109673464,
+        "neighborhood_quality_training_support": 2,
+        "nearest_training_peers": [
+          {
+            "Id": 524,
+            "distance": 1.5527401682918331,
+            "Neighborhood": "Edwards",
+            "OverallQual": 10,
+            "GrLivArea": 4676,
+            "YearBuilt": 2007,
+            "SaleCondition": "Partial",
+            "SalePrice": 184750.0
+          },
+          {
+            "Id": 1299,
+            "distance": 2.4759355076301257,
+            "Neighborhood": "Edwards",
+            "OverallQual": 10,
+            "GrLivArea": 5642,
+            "YearBuilt": 2008,
+            "SaleCondition": "Partial",
+            "SalePrice": 160000.0
+          },
+          {
+            "Id": 1170,
+            "distance": 2.6143447034228715,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 10,
+            "GrLivArea": 3627,
+            "YearBuilt": 1995,
+            "SaleCondition": "Normal",
+            "SalePrice": 625000.0
+          },
+          {
+            "Id": 692,
+            "distance": 2.6868016503607217,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 10,
+            "GrLivArea": 4316,
+            "YearBuilt": 1994,
+            "SaleCondition": "Normal",
+            "SalePrice": 755000.0
+          },
+          {
+            "Id": 1183,
+            "distance": 3.0736599126112587,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 10,
+            "GrLivArea": 4476,
+            "YearBuilt": 1996,
+            "SaleCondition": "Abnorml",
+            "SalePrice": 745000.0
+          }
+        ]
+      },
+      {
+        "Id": 1979,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 9,
+        "GrLivArea": 1866,
+        "HouseAge": 0,
+        "SaleCondition": "Partial",
+        "champion_price": 328943.3542509054,
+        "candidate_price": 316294.83181983494,
+        "price_delta": -12648.52243107045,
+        "log_delta": -0.03921064815286919,
+        "effective_leaf_neighbors": 4.9881967827766855,
+        "neighborhood_quality_training_support": 24,
+        "nearest_training_peers": [
+          {
+            "Id": 379,
+            "distance": 0.13517181445630924,
+            "Neighborhood": "StoneBr",
+            "OverallQual": 9,
+            "GrLivArea": 1856,
+            "YearBuilt": 2010,
+            "SaleCondition": "Partial",
+            "SalePrice": 394432.0
+          },
+          {
+            "Id": 482,
+            "distance": 0.18439645300635096,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 1792,
+            "YearBuilt": 2003,
+            "SaleCondition": "Normal",
+            "SalePrice": 374000.0
+          },
+          {
+            "Id": 933,
+            "distance": 0.2003553636614674,
+            "Neighborhood": "Somerst",
+            "OverallQual": 9,
+            "GrLivArea": 1905,
+            "YearBuilt": 2006,
+            "SaleCondition": "Normal",
+            "SalePrice": 320000.0
+          },
+          {
+            "Id": 1325,
+            "distance": 0.2042501517870645,
+            "Neighborhood": "Somerst",
+            "OverallQual": 8,
+            "GrLivArea": 1795,
+            "YearBuilt": 2006,
+            "SaleCondition": "Partial",
+            "SalePrice": 147000.0
+          },
+          {
+            "Id": 619,
+            "distance": 0.21411616982982218,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 1828,
+            "YearBuilt": 2007,
+            "SaleCondition": "Partial",
+            "SalePrice": 314813.0
+          }
+        ]
+      },
+      {
+        "Id": 1476,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 9,
+        "GrLivArea": 2334,
+        "HouseAge": 1,
+        "SaleCondition": "Partial",
+        "champion_price": 387703.8967338948,
+        "candidate_price": 380837.92270910705,
+        "price_delta": -6865.974024787778,
+        "log_delta": -0.017867964120511347,
+        "effective_leaf_neighbors": 4.999430578728538,
+        "neighborhood_quality_training_support": 24,
+        "nearest_training_peers": [
+          {
+            "Id": 162,
+            "distance": 0.2279212771370428,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2668,
+            "YearBuilt": 2003,
+            "SaleCondition": "Normal",
+            "SalePrice": 412500.0
+          },
+          {
+            "Id": 620,
+            "distance": 0.23435271445255737,
+            "Neighborhood": "Timber",
+            "OverallQual": 8,
+            "GrLivArea": 2262,
+            "YearBuilt": 2003,
+            "SaleCondition": "Normal",
+            "SalePrice": 305000.0
+          },
+          {
+            "Id": 390,
+            "distance": 0.2541327358316604,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 10,
+            "GrLivArea": 2332,
+            "YearBuilt": 2007,
+            "SaleCondition": "Partial",
+            "SalePrice": 426000.0
+          },
+          {
+            "Id": 611,
+            "distance": 0.26240075017973735,
+            "Neighborhood": "CollgCr",
+            "OverallQual": 9,
+            "GrLivArea": 2153,
+            "YearBuilt": 2000,
+            "SaleCondition": "Normal",
+            "SalePrice": 313000.0
+          },
+          {
+            "Id": 592,
+            "distance": 0.2649234690902164,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 10,
+            "GrLivArea": 2296,
+            "YearBuilt": 2008,
+            "SaleCondition": "Normal",
+            "SalePrice": 451950.0
+          }
+        ]
+      },
+      {
+        "Id": 2752,
+        "Neighborhood": "NAmes",
+        "OverallQual": 7,
+        "GrLivArea": 2039,
+        "HouseAge": 65,
+        "SaleCondition": "Abnorml",
+        "champion_price": 157689.58302442127,
+        "candidate_price": 152044.00806534674,
+        "price_delta": -5645.574959074525,
+        "log_delta": -0.03645819498409688,
+        "effective_leaf_neighbors": 4.993993796771454,
+        "neighborhood_quality_training_support": 12,
+        "nearest_training_peers": [
+          {
+            "Id": 667,
+            "distance": 0.5564705139929842,
+            "Neighborhood": "NAmes",
+            "OverallQual": 6,
+            "GrLivArea": 2380,
+            "YearBuilt": 1965,
+            "SaleCondition": "Abnorml",
+            "SalePrice": 129000.0
+          },
+          {
+            "Id": 418,
+            "distance": 0.5829246729115488,
+            "Neighborhood": "Crawfor",
+            "OverallQual": 6,
+            "GrLivArea": 2624,
+            "YearBuilt": 1918,
+            "SaleCondition": "Normal",
+            "SalePrice": 239000.0
+          },
+          {
+            "Id": 261,
+            "distance": 0.6123893677779173,
+            "Neighborhood": "NAmes",
+            "OverallQual": 6,
+            "GrLivArea": 1382,
+            "YearBuilt": 1962,
+            "SaleCondition": "Normal",
+            "SalePrice": 176000.0
+          },
+          {
+            "Id": 1410,
+            "distance": 0.6221986963224945,
+            "Neighborhood": "NWAmes",
+            "OverallQual": 7,
+            "GrLivArea": 2093,
+            "YearBuilt": 1986,
+            "SaleCondition": "Normal",
+            "SalePrice": 215000.0
+          },
+          {
+            "Id": 365,
+            "distance": 0.6310637566083959,
+            "Neighborhood": "NWAmes",
+            "OverallQual": 6,
+            "GrLivArea": 1574,
+            "YearBuilt": 1976,
+            "SaleCondition": "Normal",
+            "SalePrice": 190000.0
+          }
+        ]
+      },
+      {
+        "Id": 1665,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 9,
+        "GrLivArea": 1736,
+        "HouseAge": 1,
+        "SaleCondition": "Normal",
+        "champion_price": 297820.3679229432,
+        "candidate_price": 292579.9088911253,
+        "price_delta": -5240.459031817911,
+        "log_delta": -0.017752630255757518,
+        "effective_leaf_neighbors": 4.970734941310274,
+        "neighborhood_quality_training_support": 24,
+        "nearest_training_peers": [
+          {
+            "Id": 482,
+            "distance": 0.1036644660288295,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 1792,
+            "YearBuilt": 2003,
+            "SaleCondition": "Normal",
+            "SalePrice": 374000.0
+          },
+          {
+            "Id": 379,
+            "distance": 0.11849031369488593,
+            "Neighborhood": "StoneBr",
+            "OverallQual": 9,
+            "GrLivArea": 1856,
+            "YearBuilt": 2010,
+            "SaleCondition": "Partial",
+            "SalePrice": 394432.0
+          },
+          {
+            "Id": 619,
+            "distance": 0.12719182948510124,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 1828,
+            "YearBuilt": 2007,
+            "SaleCondition": "Partial",
+            "SalePrice": 314813.0
+          },
+          {
+            "Id": 1306,
+            "distance": 0.17041037840239603,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 1652,
+            "YearBuilt": 2006,
+            "SaleCondition": "Normal",
+            "SalePrice": 325000.0
+          },
+          {
+            "Id": 933,
+            "distance": 0.17844392080687513,
+            "Neighborhood": "Somerst",
+            "OverallQual": 9,
+            "GrLivArea": 1905,
+            "YearBuilt": 2006,
+            "SaleCondition": "Normal",
+            "SalePrice": 320000.0
+          }
+        ]
+      },
+      {
+        "Id": 2660,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 8,
+        "GrLivArea": 2358,
+        "HouseAge": 1,
+        "SaleCondition": "Partial",
+        "champion_price": 365515.7092856584,
+        "candidate_price": 360782.2489376342,
+        "price_delta": -4733.460348024149,
+        "log_delta": -0.013034634830479518,
+        "effective_leaf_neighbors": 4.991690057814773,
+        "neighborhood_quality_training_support": 27,
+        "nearest_training_peers": [
+          {
+            "Id": 620,
+            "distance": 0.10723544485199714,
+            "Neighborhood": "Timber",
+            "OverallQual": 8,
+            "GrLivArea": 2262,
+            "YearBuilt": 2003,
+            "SaleCondition": "Normal",
+            "SalePrice": 305000.0
+          },
+          {
+            "Id": 168,
+            "distance": 0.16050056126660545,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 8,
+            "GrLivArea": 2161,
+            "YearBuilt": 2007,
+            "SaleCondition": "Partial",
+            "SalePrice": 325624.0
+          },
+          {
+            "Id": 760,
+            "distance": 0.2436945856025941,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2531,
+            "YearBuilt": 1995,
+            "SaleCondition": "Normal",
+            "SalePrice": 290000.0
+          },
+          {
+            "Id": 1106,
+            "distance": 0.2502822263270234,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2622,
+            "YearBuilt": 1994,
+            "SaleCondition": "Normal",
+            "SalePrice": 325000.0
+          },
+          {
+            "Id": 611,
+            "distance": 0.26113330800578544,
+            "Neighborhood": "CollgCr",
+            "OverallQual": 9,
+            "GrLivArea": 2153,
+            "YearBuilt": 2000,
+            "SaleCondition": "Normal",
+            "SalePrice": 313000.0
+          }
+        ]
+      },
+      {
+        "Id": 2044,
+        "Neighborhood": "NWAmes",
+        "OverallQual": 6,
+        "GrLivArea": 1740,
+        "HouseAge": 40,
+        "SaleCondition": "Family",
+        "champion_price": 163698.88015768878,
+        "candidate_price": 159124.11508480826,
+        "price_delta": -4574.7650728805165,
+        "log_delta": -0.02834397217928829,
+        "effective_leaf_neighbors": 4.99662603592519,
+        "neighborhood_quality_training_support": 36,
+        "nearest_training_peers": [
+          {
+            "Id": 1007,
+            "distance": 0.13964055598337052,
+            "Neighborhood": "NAmes",
+            "OverallQual": 6,
+            "GrLivArea": 1657,
+            "YearBuilt": 1970,
+            "SaleCondition": "Normal",
+            "SalePrice": 163500.0
+          },
+          {
+            "Id": 110,
+            "distance": 0.17562503002883184,
+            "Neighborhood": "NWAmes",
+            "OverallQual": 6,
+            "GrLivArea": 1844,
+            "YearBuilt": 1977,
+            "SaleCondition": "Normal",
+            "SalePrice": 190000.0
+          },
+          {
+            "Id": 941,
+            "distance": 0.20636311994189113,
+            "Neighborhood": "Mitchel",
+            "OverallQual": 6,
+            "GrLivArea": 1728,
+            "YearBuilt": 1976,
+            "SaleCondition": "Normal",
+            "SalePrice": 150900.0
+          },
+          {
+            "Id": 1004,
+            "distance": 0.22884580801973617,
+            "Neighborhood": "NWAmes",
+            "OverallQual": 5,
+            "GrLivArea": 1680,
+            "YearBuilt": 1976,
+            "SaleCondition": "Normal",
+            "SalePrice": 136905.0
+          },
+          {
+            "Id": 925,
+            "distance": 0.24001448123300367,
+            "Neighborhood": "NWAmes",
+            "OverallQual": 6,
+            "GrLivArea": 1686,
+            "YearBuilt": 1980,
+            "SaleCondition": "Normal",
+            "SalePrice": 207500.0
+          }
+        ]
+      },
+      {
+        "Id": 2333,
+        "Neighborhood": "NoRidge",
+        "OverallQual": 8,
+        "GrLivArea": 2582,
+        "HouseAge": 9,
+        "SaleCondition": "Normal",
+        "champion_price": 328988.3156907995,
+        "candidate_price": 324894.4394132979,
+        "price_delta": -4093.8762775015784,
+        "log_delta": -0.01252186945106775,
+        "effective_leaf_neighbors": 4.993773396142675,
+        "neighborhood_quality_training_support": 24,
+        "nearest_training_peers": [
+          {
+            "Id": 760,
+            "distance": 0.14083871749187146,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2531,
+            "YearBuilt": 1995,
+            "SaleCondition": "Normal",
+            "SalePrice": 290000.0
+          },
+          {
+            "Id": 1106,
+            "distance": 0.15901530288813956,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2622,
+            "YearBuilt": 1994,
+            "SaleCondition": "Normal",
+            "SalePrice": 325000.0
+          },
+          {
+            "Id": 424,
+            "distance": 0.20573529090028173,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2630,
+            "YearBuilt": 1998,
+            "SaleCondition": "Normal",
+            "SalePrice": 315000.0
+          },
+          {
+            "Id": 982,
+            "distance": 0.21111261754750688,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2612,
+            "YearBuilt": 1998,
+            "SaleCondition": "Normal",
+            "SalePrice": 336000.0
+          },
+          {
+            "Id": 1313,
+            "distance": 0.22539229085464807,
+            "Neighborhood": "NoRidge",
+            "OverallQual": 8,
+            "GrLivArea": 2810,
+            "YearBuilt": 1990,
+            "SaleCondition": "Normal",
+            "SalePrice": 302000.0
+          }
+        ]
+      },
+      {
+        "Id": 2223,
+        "Neighborhood": "Mitchel",
+        "OverallQual": 7,
+        "GrLivArea": 2032,
+        "HouseAge": 12,
+        "SaleCondition": "Normal",
+        "champion_price": 325773.07060034684,
+        "candidate_price": 321753.07373569737,
+        "price_delta": -4019.996864649467,
+        "log_delta": -0.012416598559407976,
+        "effective_leaf_neighbors": 4.995221159728995,
+        "neighborhood_quality_training_support": 6,
+        "nearest_training_peers": [
+          {
+            "Id": 67,
+            "distance": 0.5523974301348787,
+            "Neighborhood": "NAmes",
+            "OverallQual": 7,
+            "GrLivArea": 2207,
+            "YearBuilt": 1970,
+            "SaleCondition": "Normal",
+            "SalePrice": 180000.0
+          },
+          {
+            "Id": 1347,
+            "distance": 0.6073775677627534,
+            "Neighborhood": "NWAmes",
+            "OverallQual": 7,
+            "GrLivArea": 2156,
+            "YearBuilt": 1968,
+            "SaleCondition": "Normal",
+            "SalePrice": 262500.0
+          },
+          {
+            "Id": 1271,
+            "distance": 0.620854064151452,
+            "Neighborhood": "ClearCr",
+            "OverallQual": 7,
+            "GrLivArea": 1524,
+            "YearBuilt": 1979,
+            "SaleCondition": "Normal",
+            "SalePrice": 260000.0
+          },
+          {
+            "Id": 693,
+            "distance": 0.6536347228140378,
+            "Neighborhood": "Timber",
+            "OverallQual": 7,
+            "GrLivArea": 2519,
+            "YearBuilt": 1989,
+            "SaleCondition": "Normal",
+            "SalePrice": 335000.0
+          },
+          {
+            "Id": 350,
+            "distance": 0.6576932128221813,
+            "Neighborhood": "NridgHt",
+            "OverallQual": 9,
+            "GrLivArea": 2728,
+            "YearBuilt": 2005,
+            "SaleCondition": "Partial",
+            "SalePrice": 437154.0
+          }
+        ]
+      },
+      {
+        "Id": 2104,
+        "Neighborhood": "OldTown",
+        "OverallQual": 5,
+        "GrLivArea": 2350,
+        "HouseAge": 88,
+        "SaleCondition": "Normal",
+        "champion_price": 129157.76020645736,
+        "candidate_price": 125223.91423964784,
+        "price_delta": -3933.8459668095165,
+        "log_delta": -0.030930912553598706,
+        "effective_leaf_neighbors": 4.789866938792304,
+        "neighborhood_quality_training_support": 47,
+        "nearest_training_peers": [
+          {
+            "Id": 810,
+            "distance": 0.28564528483589335,
+            "Neighborhood": "OldTown",
+            "OverallQual": 5,
+            "GrLivArea": 2138,
+            "YearBuilt": 1898,
+            "SaleCondition": "Normal",
+            "SalePrice": 106000.0
+          },
+          {
+            "Id": 489,
+            "distance": 0.3018317383131518,
+            "Neighborhood": "OldTown",
+            "OverallQual": 5,
+            "GrLivArea": 2414,
+            "YearBuilt": 1900,
+            "SaleCondition": "Normal",
+            "SalePrice": 160000.0
+          },
+          {
+            "Id": 1249,
+            "distance": 0.32848299663609093,
+            "Neighborhood": "OldTown",
+            "OverallQual": 6,
+            "GrLivArea": 2058,
+            "YearBuilt": 1917,
+            "SaleCondition": "Normal",
+            "SalePrice": 129500.0
+          },
+          {
+            "Id": 247,
+            "distance": 0.34945266183734325,
+            "Neighborhood": "OldTown",
+            "OverallQual": 6,
+            "GrLivArea": 1928,
+            "YearBuilt": 1910,
+            "SaleCondition": "Normal",
+            "SalePrice": 137000.0
+          },
+          {
+            "Id": 1060,
+            "distance": 0.3688048366317787,
+            "Neighborhood": "Crawfor",
+            "OverallQual": 6,
+            "GrLivArea": 1991,
+            "YearBuilt": 1932,
+            "SaleCondition": "Normal",
+            "SalePrice": 220000.0
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "columns": [
+      "Id",
+      "SalePrice"
+    ],
+    "rows": 1459,
+    "ids_match_test_in_order": true,
+    "unique_ids": true,
+    "finite_positive_prices": true,
+    "champion_archive_unchanged": true,
+    "candidate_and_versioned_copy_byte_identical": true
+  },
+  "promotion_decision": "SHADOW: all three saved confirmation seeds improve at scale 0.5, including after excluding IDs 524 and 1299, but the paired bootstrap interval for the outlier-excluded MSE gain crosses zero and the full champion pipeline was not repeated. No public score is claimed."
+}

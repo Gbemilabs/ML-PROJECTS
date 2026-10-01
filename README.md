@@ -35,6 +35,8 @@ Numeric-coded categorical values are canonicalized consistently in train and tes
 - Phase-five nested transfer: `experiments/phase5_support_floor_transfer.py`; its candidate is versioned under `submissions/candidates/`.
 - Phase-six uncertainty and tree-leaf experiments are under `experiments/phase6_*`; their generated CSVs remain rejected shadows.
 - Phase-six uncertainty and tree-leaf experiments are under `experiments/phase6_*`; their generated CSVs remain rejected shadows. The leaf candidate is versioned at `submissions/candidates/phase6_leaf_similarity_rejected.csv`.
+- A new Phase Seven tree-leaf half-strength candidate is ready at `submissions/candidates/next_submission_treeleaf_halfstrength.csv` (SHA-256 `962cac25e3ec94a811ae539cf5bbc0133b42033bf6f61ea3ea9a0aee2ca16cc7`). It remains `SHADOW`; details and test movement audit are in `experiments/phase7_treeleaf_halfstrength_report.json`.
+- Phase Five validation uses the 0.12654 parent, while the current 0.12374 OOF adds half of five-mean residual corrections to that fixed parent OOF; repeated full-champion refits remain unresolved.
 - Full experiment decisions: `experiments/research_log.csv`.
 
 The scripts refuse to overwrite many existing phase outputs. Preserve champion archives before rerunning experiments. Kaggle CLI/API credentials were unavailable at the latest checkpoint, so phase-six shadow scores are pending external verification.
