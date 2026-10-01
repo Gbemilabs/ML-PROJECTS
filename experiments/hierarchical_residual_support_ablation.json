@@ -1,0 +1,300 @@
+{
+  "experiment_id": "P4-HIERARCHICAL-SUPPORT-ABLATION",
+  "oof_source": [
+    "experiments/hierarchical_residual_oof.csv",
+    "experiments/hierarchical_residual_confirm_oof.csv"
+  ],
+  "confirmation_seeds": [
+    2025,
+    2026,
+    2027,
+    2029,
+    2030
+  ],
+  "support_floor_results": {
+    "0": {
+      "minimum_training_peers": 0,
+      "all_rows": {
+        "baseline": {
+          "pooled_rmse": 0.12386611872965181
+        },
+        "corrected": {
+          "pooled_rmse": 0.12216536737035215
+        },
+        "affected_rows": 7201
+      },
+      "excluding_ids_524_1299": {
+        "baseline": {
+          "pooled_rmse": 0.12037195887614738
+        },
+        "corrected": {
+          "pooled_rmse": 0.120113371105833
+        },
+        "affected_rows": 7191
+      }
+    },
+    "2": {
+      "minimum_training_peers": 2,
+      "all_rows": {
+        "baseline": {
+          "pooled_rmse": 0.12386611872965181
+        },
+        "corrected": {
+          "pooled_rmse": 0.12386625484262417
+        },
+        "affected_rows": 7039
+      },
+      "excluding_ids_524_1299": {
+        "baseline": {
+          "pooled_rmse": 0.12037195887614738
+        },
+        "corrected": {
+          "pooled_rmse": 0.12037209913233719
+        },
+        "affected_rows": 7039
+      }
+    },
+    "3": {
+      "minimum_training_peers": 3,
+      "all_rows": {
+        "baseline": {
+          "pooled_rmse": 0.12386611872965181
+        },
+        "corrected": {
+          "pooled_rmse": 0.12419466158376886
+        },
+        "affected_rows": 6835
+      },
+      "excluding_ids_524_1299": {
+        "baseline": {
+          "pooled_rmse": 0.12037195887614738
+        },
+        "corrected": {
+          "pooled_rmse": 0.12071047541740888
+        },
+        "affected_rows": 6835
+      }
+    },
+    "5": {
+      "minimum_training_peers": 5,
+      "all_rows": {
+        "baseline": {
+          "pooled_rmse": 0.12386611872965181
+        },
+        "corrected": {
+          "pooled_rmse": 0.12450608406133211
+        },
+        "affected_rows": 6515
+      },
+      "excluding_ids_524_1299": {
+        "baseline": {
+          "pooled_rmse": 0.12037195887614738
+        },
+        "corrected": {
+          "pooled_rmse": 0.12103130223491407
+        },
+        "affected_rows": 6515
+      }
+    },
+    "10": {
+      "minimum_training_peers": 10,
+      "all_rows": {
+        "baseline": {
+          "pooled_rmse": 0.12386611872965181
+        },
+        "corrected": {
+          "pooled_rmse": 0.12426909721776053
+        },
+        "affected_rows": 5434
+      },
+      "excluding_ids_524_1299": {
+        "baseline": {
+          "pooled_rmse": 0.12037195887614738
+        },
+        "corrected": {
+          "pooled_rmse": 0.12078716323629125
+        },
+        "affected_rows": 5434
+      }
+    },
+    "20": {
+      "minimum_training_peers": 20,
+      "all_rows": {
+        "baseline": {
+          "pooled_rmse": 0.12386611872965181
+        },
+        "corrected": {
+          "pooled_rmse": 0.12398087399632592
+        },
+        "affected_rows": 3399
+      },
+      "excluding_ids_524_1299": {
+        "baseline": {
+          "pooled_rmse": 0.12037195887614738
+        },
+        "corrected": {
+          "pooled_rmse": 0.1204902039427633
+        },
+        "affected_rows": 3399
+      }
+    }
+  },
+  "peer_count_distribution": {
+    "0": 99,
+    "1": 162,
+    "2": 204,
+    "3": 160,
+    "4": 160,
+    "5": 148,
+    "6": 234,
+    "7": 259,
+    "8": 229,
+    "9": 211,
+    "10": 135,
+    "11": 137,
+    "12": 123,
+    "13": 211,
+    "14": 191,
+    "15": 240,
+    "16": 211,
+    "17": 297,
+    "18": 242,
+    "19": 248,
+    "20": 203,
+    "21": 199,
+    "22": 83,
+    "23": 146,
+    "24": 94,
+    "25": 54,
+    "26": 103,
+    "27": 120,
+    "28": 73,
+    "29": 166,
+    "30": 105,
+    "31": 103,
+    "32": 55,
+    "33": 46,
+    "34": 31,
+    "35": 63,
+    "36": 56,
+    "37": 46,
+    "38": 79,
+    "39": 31,
+    "40": 42,
+    "41": 44,
+    "42": 48,
+    "43": 33,
+    "44": 10,
+    "45": 27,
+    "46": 8,
+    "47": 59,
+    "48": 29,
+    "50": 45,
+    "51": 40,
+    "52": 41,
+    "53": 18,
+    "54": 20,
+    "56": 54,
+    "57": 104,
+    "58": 116,
+    "59": 81,
+    "60": 39,
+    "61": 10,
+    "62": 66,
+    "63": 8,
+    "64": 10,
+    "66": 21,
+    "69": 5,
+    "77": 36,
+    "79": 34,
+    "83": 30,
+    "86": 54,
+    "87": 26,
+    "89": 24,
+    "90": 92,
+    "91": 66,
+    "92": 21,
+    "93": 80,
+    "94": 38,
+    "96": 34,
+    "97": 16,
+    "99": 14
+  },
+  "edwards_quality10_rows": [
+    {
+      "Id": 1299,
+      "seed": 2025,
+      "fold": 1,
+      "peer_count": 1,
+      "correction": -0.18335438540819204
+    },
+    {
+      "Id": 524,
+      "seed": 2025,
+      "fold": 3,
+      "peer_count": 1,
+      "correction": -0.19375937597336623
+    },
+    {
+      "Id": 524,
+      "seed": 2026,
+      "fold": 1,
+      "peer_count": 1,
+      "correction": -0.18971770422043654
+    },
+    {
+      "Id": 1299,
+      "seed": 2026,
+      "fold": 2,
+      "peer_count": 1,
+      "correction": -0.17533239495002206
+    },
+    {
+      "Id": 524,
+      "seed": 2027,
+      "fold": 1,
+      "peer_count": 1,
+      "correction": -0.1923652630684991
+    },
+    {
+      "Id": 1299,
+      "seed": 2027,
+      "fold": 4,
+      "peer_count": 1,
+      "correction": -0.17986266584438937
+    },
+    {
+      "Id": 524,
+      "seed": 2029,
+      "fold": 1,
+      "peer_count": 1,
+      "correction": -0.19597507930181557
+    },
+    {
+      "Id": 1299,
+      "seed": 2029,
+      "fold": 3,
+      "peer_count": 1,
+      "correction": -0.1732293841366257
+    },
+    {
+      "Id": 1299,
+      "seed": 2030,
+      "fold": 1,
+      "peer_count": 1,
+      "correction": -0.1846590118730358
+    },
+    {
+      "Id": 524,
+      "seed": 2030,
+      "fold": 4,
+      "peer_count": 1,
+      "correction": -0.1882789275684189
+    }
+  ],
+  "test_2550_shadow_price": 252162.2040317212,
+  "test_2550_protected_champion_price": 281090.53723308974,
+  "test_2550_shadow_minus_champion": -28928.333201368543,
+  "decision": "REJECT_FOR_PROMOTION; gain vanishes with two-peer floor and is below the gate when the two Edwards rows are excluded.",
+  "shadow_candidate_status": "Preserved for audit only; not promoted and not the root submission."
+}

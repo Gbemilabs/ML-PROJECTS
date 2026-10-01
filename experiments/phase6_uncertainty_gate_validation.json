@@ -1,0 +1,83 @@
+{
+  "experiment_id": "P6-UNCERTAINTY-GATED-RESIDUAL",
+  "hypothesis": "Cross-seed uncertainty of the local residual effect can gate a small extra correction in high-confidence regions.",
+  "parent_champion": "0.12374 external system; preserved under experiments/champion/",
+  "correction_model": "Ridge alpha10, hierarchy one-hot min_frequency10, trained on inner-OOF XGBoost residuals",
+  "discovery_seeds": [
+    2031,
+    2032
+  ],
+  "confirmation_seeds": [
+    2033,
+    2034,
+    2035
+  ],
+  "threshold_quantiles": [
+    0.75,
+    0.85,
+    0.9,
+    0.95
+  ],
+  "incremental_scales": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "discovery_selected_only": {
+    "uncertainty_quantile": 0.9,
+    "threshold": 0.02223995173311813,
+    "increment": 0.5
+  },
+  "discovery_metrics": {
+    "pooled_rmse": 0.12375720910722558,
+    "mean_fold_rmse": 0.12293287062884606,
+    "fold_rmse_std": 0.014260298908541842,
+    "worst_fold_rmse": 0.1467280406982926,
+    "median_fold_rmse": 0.12091592684961315
+  },
+  "confirmation_baseline": {
+    "pooled_rmse": 0.12393249002449601,
+    "mean_fold_rmse": 0.12306773497517849,
+    "fold_rmse_std": 0.014614879122012502,
+    "worst_fold_rmse": 0.1476727858361466,
+    "median_fold_rmse": 0.1214210570924564
+  },
+  "confirmation_candidate": {
+    "pooled_rmse": 0.1241944717936449,
+    "mean_fold_rmse": 0.12337300221829499,
+    "fold_rmse_std": 0.014260755511088108,
+    "worst_fold_rmse": 0.14801424526866705,
+    "median_fold_rmse": 0.1205991772844637
+  },
+  "confirmation_gain": -0.0002619817691488918,
+  "confirmation_worst_fold_change": 0.0003414594325204523,
+  "confirmation_by_seed": {
+    "2033": {
+      "champion_oof_rmse": 0.12393249002449601,
+      "candidate_rmse": 0.12445607626196885
+    },
+    "2034": {
+      "champion_oof_rmse": 0.12393249002449601,
+      "candidate_rmse": 0.12414036525943456
+    },
+    "2035": {
+      "champion_oof_rmse": 0.12393249002449601,
+      "candidate_rmse": 0.1241533938194433
+    }
+  },
+  "predeclared_gate_passed": false,
+  "candidate_path": "experiments/shadow_candidates/phase6_uncertainty_gate.csv",
+  "components_path": "experiments/phase6_uncertainty_gate_test_components.csv",
+  "prediction_movement": {
+    "mean_abs_log_delta": 0.00024211091003168437,
+    "p95_abs_log_delta": 0.0,
+    "max_abs_log_delta": 0.08517534011545713,
+    "test_rows_gated": 7,
+    "test_rows_total": 1459
+  },
+  "external_score": null,
+  "decision": "REJECT",
+  "caveat": "Discovery/confirmation seeds reuse the same homes; this is seed-robustness evidence, not an independent sample or Kaggle result.",
+  "oof_path": "experiments/phase6_uncertainty_gate_oof.csv",
+  "runtime_seconds": 24.05
+}

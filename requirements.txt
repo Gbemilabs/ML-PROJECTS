@@ -1,0 +1,8 @@
+numpy>=2.0
+pandas>=2.2
+scikit-learn>=1.5
+xgboost>=3.0
+lightgbm>=4.0
+catboost>=1.2
+matplotlib>=3.8
+seaborn>=0.13

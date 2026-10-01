@@ -1,0 +1,91 @@
+{
+  "experiment_id": "P6-CHAMPION-CALIBRATION",
+  "hypothesis": "Global log-price calibration may remove systematic multiplicative bias from the current champion.",
+  "source_oof": "experiments/champion/oof_0.12374_crossfit.csv",
+  "methods": [
+    "identity",
+    "intercept",
+    "affine",
+    "ridge10",
+    "isotonic"
+  ],
+  "discovery_seeds": [
+    23,
+    47,
+    83
+  ],
+  "confirmation_seeds": [
+    2036,
+    2037,
+    2041
+  ],
+  "results": {
+    "discovery": {
+      "identity": {
+        "pooled_rmse": 0.12393249002449602,
+        "mean_fold_rmse": 0.12302776408635448,
+        "fold_rmse_std": 0.014947620131115015,
+        "worst_fold_rmse": 0.14863094173282856
+      },
+      "intercept": {
+        "pooled_rmse": 0.12401604283773851,
+        "mean_fold_rmse": 0.12311242342863576,
+        "fold_rmse_std": 0.01494356311794783,
+        "worst_fold_rmse": 0.14863172418058482
+      },
+      "affine": {
+        "pooled_rmse": 0.12424848162606045,
+        "mean_fold_rmse": 0.12333566499244197,
+        "fold_rmse_std": 0.015033260699316098,
+        "worst_fold_rmse": 0.1491494168322957
+      },
+      "ridge10": {
+        "pooled_rmse": 0.12605016664501942,
+        "mean_fold_rmse": 0.12529825897271998,
+        "fold_rmse_std": 0.013747392830728561,
+        "worst_fold_rmse": 0.14821569283251657
+      },
+      "isotonic": {
+        "pooled_rmse": 0.12747359668372968,
+        "mean_fold_rmse": 0.12669074032723002,
+        "fold_rmse_std": 0.014105820317321242,
+        "worst_fold_rmse": 0.15746171147379218
+      }
+    },
+    "confirmation": {
+      "identity": {
+        "pooled_rmse": 0.12393249002449602,
+        "mean_fold_rmse": 0.12311789587788728,
+        "fold_rmse_std": 0.014186112866938343,
+        "worst_fold_rmse": 0.14400075109092542
+      },
+      "intercept": {
+        "pooled_rmse": 0.12404007090667882,
+        "mean_fold_rmse": 0.12324065147316515,
+        "fold_rmse_std": 0.014059908072379014,
+        "worst_fold_rmse": 0.14400860955011988
+      },
+      "affine": {
+        "pooled_rmse": 0.12419594225856903,
+        "mean_fold_rmse": 0.12340566997788925,
+        "fold_rmse_std": 0.013988305501457089,
+        "worst_fold_rmse": 0.1439911863113882
+      },
+      "ridge10": {
+        "pooled_rmse": 0.12602449836856539,
+        "mean_fold_rmse": 0.12522073616835247,
+        "fold_rmse_std": 0.014210609505028433,
+        "worst_fold_rmse": 0.1456349117039927
+      },
+      "isotonic": {
+        "pooled_rmse": 0.1263851900952635,
+        "mean_fold_rmse": 0.125587589899021,
+        "fold_rmse_std": 0.014176513632455891,
+        "worst_fold_rmse": 0.1459436779053633
+      }
+    }
+  },
+  "decision": "REJECT; all nonidentity calibrators worsened pooled confirmation RMSE",
+  "caveat": "Seed partitions reuse the same target rows; this is a calibration stability screen, not an independent external evaluation.",
+  "runtime_seconds": 0.19
+}

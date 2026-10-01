@@ -1,0 +1,62 @@
+{
+  "experiment_id": "P5-SUPPORT-FLOOR-CHAMPION-TRANSFER",
+  "hypothesis": "Higher category pooling/support and ridge shrinkage will retain champion residual gains while preventing low-support market cells from dominating.",
+  "discovery_seeds": [
+    2031,
+    2032
+  ],
+  "confirmation_seeds": [
+    2033,
+    2034,
+    2035
+  ],
+  "outer_splits": 5,
+  "inner_splits": 4,
+  "configurations": 16,
+  "selected_on_discovery_only": {
+    "ridge_alpha": 10.0,
+    "minimum_frequency": 10,
+    "scale": 0.5
+  },
+  "confirmation_baseline": {
+    "pooled_rmse": 0.12546557634663488,
+    "mean_fold_rmse": 0.12459747434466958,
+    "fold_rmse_std": 0.014733642961693787,
+    "worst_fold_rmse": 0.1498562492588167,
+    "median_fold_rmse": 0.12577699809657306
+  },
+  "confirmation_candidate": {
+    "pooled_rmse": 0.12406963982689305,
+    "mean_fold_rmse": 0.1233295995307755,
+    "fold_rmse_std": 0.013530905599903612,
+    "worst_fold_rmse": 0.14659002543078253,
+    "median_fold_rmse": 0.12364126744214973
+  },
+  "confirmation_gain": 0.0013959365197418333,
+  "confirmation_worst_fold_change": -0.003266223828034154,
+  "confirmation_by_seed": {
+    "2033": {
+      "base": 0.12546557634663486,
+      "candidate": 0.12428308067778597
+    },
+    "2034": {
+      "base": 0.12546557634663486,
+      "candidate": 0.1241482938586659
+    },
+    "2035": {
+      "base": 0.12546557634663486,
+      "candidate": 0.123776991276837
+    }
+  },
+  "confirmation_seeds_improved": 3,
+  "shadow_gate_passed": true,
+  "shadow_candidate_written": true,
+  "shadow_candidate_path": "experiments/shadow_candidates/phase5_support_floor_transfer.csv",
+  "components_path": "experiments/phase5_support_floor_test_components.csv",
+  "external_champion": 0.12654,
+  "external_score": null,
+  "oof_path": "experiments/phase5_support_floor_transfer_oof.csv",
+  "decision": "SHADOW_ONLY",
+  "caveat": "Validation transfers residual corrections to the champion's fixed seed-42 OOF; the full CatBoost/XGBoost model was not repeated across these seeds.",
+  "runtime_seconds": 113.45
+}

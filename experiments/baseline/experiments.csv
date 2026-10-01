@@ -1,0 +1,2 @@
+experiment_id,model,preprocessing,feature_set,cv_fold_scores,cv_mean,cv_std,notes
+EXP-001,XGB + CatBoost ensemble,one_hot+median_impute+log1p_target,engineered_base,"[0.1327182724666488, 0.1105253204809834, 0.14975214689345578, 0.12331277474511826, 0.10604867755644659]",0.124471,0.015763,Weight 0.7 CatBoost + 0.3 XGB from OOF validation

@@ -1,0 +1,29 @@
+{
+  "status": "previous_external_champion",
+  "score_metric": "public RMSLE",
+  "public_score": 0.12654,
+  "approximate_rank": 1084,
+  "leaderboard_size_reported": 3775,
+  "score_source": "user-provided; exact Kaggle query unavailable in this environment",
+  "user_identified_artifact": "root submission.csv at continuation start",
+  "submission_artifact": "experiments/champion/submission_0.12654.csv",
+  "submission_sha256": "d2b9ca662c95e40e88e74f32ea1f5970181c6c7614f3fc40d06399c6d1a14008",
+  "oof_artifact": "experiments/champion/oof_seed42.csv",
+  "oof_sha256": "86f20bf831018f8c3f83d4e87ce19a6e51b8aa373bbb32cd6c1746feb8604ab3",
+  "rows": 1459,
+  "prediction_mean": 175925.51257746218,
+  "prediction_min": 47529.95591335436,
+  "prediction_max": 527018.725438876,
+  "model": "70% CatBoost + 30% XGBoost",
+  "target_transform": "log1p(SalePrice)",
+  "blend_space": "log target space; inverse transform with expm1",
+  "local_validation": {
+    "scheme": "KFold5 shuffled seed42",
+    "mean_fold_rmse": 0.124471,
+    "fold_rmse_std": 0.015763,
+    "pooled_oof_rmse": 0.12546557634663486
+  },
+  "submission_id": null,
+  "reproduction_entry_point": "train.py",
+  "notes": "This was the protected current champion at its checkpoint and is now superseded by the user-reported 0.12374 champion. Root at the time matched experiments/canonicalized_baseline_submission.csv; best_submission.csv is the older 0.127417 artifact."
+}

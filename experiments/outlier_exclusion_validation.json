@@ -1,0 +1,42 @@
+{
+  "experiment_id": "P3-OUTLIER-EXCLUSION",
+  "model": "XGBoost_regularized",
+  "validation": "KFold5 shuffled seed42; paired training-fold exclusion; flagged rows retained in validation",
+  "flagged_ids": [
+    524,
+    1299
+  ],
+  "test_analogue_id": 2550,
+  "scores": {
+    "baseline": {
+      "pooled_rmse": 0.1291121709786079,
+      "nonflagged_pooled_rmse": 0.12158583937717903,
+      "flagged_rmse": 1.1799040882626883,
+      "fold_rmse": [
+        0.1358191051254814,
+        0.11713472646555802,
+        0.15575687603815927,
+        0.12181959578791844,
+        0.10991893222598359
+      ]
+    },
+    "exclude_flagged": {
+      "pooled_rmse": 0.12718839742475466,
+      "nonflagged_pooled_rmse": 0.11953817685040223,
+      "flagged_rmse": 1.1799040882626883,
+      "fold_rmse": [
+        0.13240839947997918,
+        0.11337015859436204,
+        0.15575687603815927,
+        0.11990755047361872,
+        0.10891115641235383
+      ]
+    }
+  },
+  "test_analogue_price_prediction": {
+    "baseline": 316260.8125,
+    "exclude_flagged": 641601.4375
+  },
+  "oof_path": "experiments/outlier_exclusion_oof.csv",
+  "decision": "Do not globally delete: OOF gain conflicts with close test-archetype risk."
+}

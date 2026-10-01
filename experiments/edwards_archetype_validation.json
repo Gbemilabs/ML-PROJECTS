@@ -1,0 +1,70 @@
+{
+  "experiment_id": "P3-EDWARDS-ARCHETYPE-TE",
+  "hypothesis": "A fold-trained neighborhood/quality/new-sale archetype mean can correct a rare test-matched regime missed by the global model.",
+  "target_encoding": "mean log SalePrice from training-fold rows matching Edwards, OverallQual=10, YearBuilt>=2007, SaleType=New, SaleCondition=Partial",
+  "alpha": 1.0,
+  "model_base": "Preserved baseline OOF predictions; target correction evaluated on repeated folds only",
+  "unique_train_group_rows": 2,
+  "test_group_rows": 1,
+  "group_mean_saleprice_geometric": 171930.22098967351,
+  "seeds": [
+    42,
+    117,
+    314,
+    999,
+    2026
+  ],
+  "n_splits": 5,
+  "n_repeats_per_seed": 2,
+  "peer_supported_validation_rows": 18,
+  "validation_rows_with_group_target_peer": 20,
+  "repeated_pooled_rmse_baseline_oof": 0.12546557634663488,
+  "repeated_pooled_rmse_corrected": 0.11852814578954983,
+  "repeated_group_rmse_baseline_oof": 1.180527855952705,
+  "repeated_group_rmse_corrected": 0.39747035234167577,
+  "row_mean_oof_rmse_corrected": 0.11778551887077858,
+  "mean_fold_rmse_baseline_oof": 0.12472198993143589,
+  "mean_fold_rmse_corrected": 0.11813026366694597,
+  "seed_reports": [
+    {
+      "seed": 42,
+      "mean_fold_rmse_baseline_oof": 0.12469924306139828,
+      "mean_fold_rmse_corrected": 0.12107554805492864,
+      "peer_supported_group_rows": 2
+    },
+    {
+      "seed": 117,
+      "mean_fold_rmse_baseline_oof": 0.12451139762991721,
+      "mean_fold_rmse_corrected": 0.11711798719626179,
+      "peer_supported_group_rows": 4
+    },
+    {
+      "seed": 314,
+      "mean_fold_rmse_baseline_oof": 0.12497886913556625,
+      "mean_fold_rmse_corrected": 0.11761505668773753,
+      "peer_supported_group_rows": 4
+    },
+    {
+      "seed": 999,
+      "mean_fold_rmse_baseline_oof": 0.1249781809598528,
+      "mean_fold_rmse_corrected": 0.11748746726249781,
+      "peer_supported_group_rows": 4
+    },
+    {
+      "seed": 2026,
+      "mean_fold_rmse_baseline_oof": 0.12444225887044491,
+      "mean_fold_rmse_corrected": 0.11735525913330407,
+      "peer_supported_group_rows": 4
+    }
+  ],
+  "candidate_adjusted_ids": [
+    2550
+  ],
+  "candidate_adjusted_saleprice": [
+    171930.22098967351
+  ],
+  "oof_path": "experiments/edwards_archetype_oof.csv",
+  "candidate_path": "experiments/edwards_archetype_candidate_submission.csv",
+  "external_score": null,
+  "decision": "INVESTIGATE; only two unique training examples and no external score"
+}

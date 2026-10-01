@@ -1,0 +1,114 @@
+{
+  "experiment_id": "P4-NESTED-RESIDUAL",
+  "hypothesis": "Inner-fold residuals may contain feature-predictable error that transfers to an untouched outer fold.",
+  "model": "XGBoost_regularized baseline with Ridge and shallow Huber GradientBoosting residual learners",
+  "residual_target_firewall": "For every outer validation fold, base residual labels come only from inner OOF predictions trained within the outer training rows.",
+  "discovery_seeds": [
+    42,
+    117
+  ],
+  "confirmation_seeds": [
+    2026
+  ],
+  "outer_splits": 5,
+  "inner_splits": 4,
+  "metrics": {
+    "discovery": {
+      "xgb_base": {
+        "pooled_rmse": 0.12847620374133956,
+        "mean_fold_rmse": 0.1275988455280273,
+        "fold_rmse_std": 0.014988980875991221,
+        "worst_fold_rmse": 0.15575687603815927,
+        "median_fold_rmse": 0.12356971036788711
+      },
+      "ridge10": {
+        "pooled_rmse": 0.13161091174665776,
+        "mean_fold_rmse": 0.13102316353900595,
+        "fold_rmse_std": 0.012424278933501096,
+        "worst_fold_rmse": 0.15852521695528402,
+        "median_fold_rmse": 0.12770272647128889
+      },
+      "ridge50": {
+        "pooled_rmse": 0.12991234597262719,
+        "mean_fold_rmse": 0.12910573335081718,
+        "fold_rmse_std": 0.014454316035678516,
+        "worst_fold_rmse": 0.16009466581731696,
+        "median_fold_rmse": 0.12558066374303137
+      },
+      "gradient_boosting": {
+        "pooled_rmse": 0.12829396599786527,
+        "mean_fold_rmse": 0.12735280734683807,
+        "fold_rmse_std": 0.01551142070671008,
+        "worst_fold_rmse": 0.15729295128160398,
+        "median_fold_rmse": 0.12422560108019734
+      }
+    },
+    "confirmation": {
+      "xgb_base": {
+        "pooled_rmse": 0.12444967208578223,
+        "mean_fold_rmse": 0.1241998812600497,
+        "fold_rmse_std": 0.007881013719584336,
+        "worst_fold_rmse": 0.13404646335312115,
+        "median_fold_rmse": 0.12168332031766192
+      },
+      "ridge10": {
+        "pooled_rmse": 0.12960417842554053,
+        "mean_fold_rmse": 0.12945495895414494,
+        "fold_rmse_std": 0.00621744863589501,
+        "worst_fold_rmse": 0.13817646403521827,
+        "median_fold_rmse": 0.12654481982091664
+      },
+      "ridge50": {
+        "pooled_rmse": 0.12650425047320685,
+        "mean_fold_rmse": 0.12634840574025158,
+        "fold_rmse_std": 0.006277400312598911,
+        "worst_fold_rmse": 0.13553588108446482,
+        "median_fold_rmse": 0.12450822173968351
+      },
+      "gradient_boosting": {
+        "pooled_rmse": 0.12374898025641674,
+        "mean_fold_rmse": 0.12343500202074706,
+        "fold_rmse_std": 0.008809675966866666,
+        "worst_fold_rmse": 0.1358760621061785,
+        "median_fold_rmse": 0.12185215982573715
+      }
+    }
+  },
+  "confirmation_residual_error_correlations": {
+    "xgb_base_log": {
+      "xgb_base_log": 1.0,
+      "ridge10_final_log": 0.9031318539705797,
+      "ridge50_final_log": 0.9543366171173878,
+      "gradient_boosting_final_log": 0.9943690318159032
+    },
+    "ridge10_final_log": {
+      "xgb_base_log": 0.9031318539705797,
+      "ridge10_final_log": 1.0,
+      "ridge50_final_log": 0.9821358831339436,
+      "gradient_boosting_final_log": 0.9132144644562489
+    },
+    "ridge50_final_log": {
+      "xgb_base_log": 0.9543366171173878,
+      "ridge10_final_log": 0.9821358831339436,
+      "ridge50_final_log": 1.0,
+      "gradient_boosting_final_log": 0.9595970640660173
+    },
+    "gradient_boosting_final_log": {
+      "xgb_base_log": 0.9943690318159032,
+      "ridge10_final_log": 0.9132144644562489,
+      "ridge50_final_log": 0.9595970640660173,
+      "gradient_boosting_final_log": 1.0
+    }
+  },
+  "confirmation_base_error_vs_correction_correlations": {
+    "ridge10": -0.13186009414158342,
+    "ridge50": -0.09801306138837987,
+    "gradient_boosting": -0.11405971146505287
+  },
+  "runtime_seconds": 94.29,
+  "oof_path": "experiments/nested_residual_oof.csv",
+  "external_champion_score": 0.12654,
+  "external_champion_oof_available": false,
+  "external_score": null,
+  "decision": "REVIEW_CONFIRMATION_METRICS; no external champion comparison possible"
+}

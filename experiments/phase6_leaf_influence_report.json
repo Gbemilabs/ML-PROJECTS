@@ -1,0 +1,272 @@
+{
+  "experiment_id": "P6-LEAF-INFLUENCE-ABLATION",
+  "source_validation": "experiments/phase6_leaf_residual_validation.json",
+  "selected_leaf_config": {
+    "top_k": 5,
+    "power": 2.0,
+    "shrinkage": 10.0
+  },
+  "confirmation_oof_metrics": {
+    "all": {
+      "baseline_rmse": 0.12393249002449602,
+      "candidate_rmse": 0.12263755998406431,
+      "rmse_gain": 0.0012949300404317132,
+      "paired_mse_gain_ci95": [
+        -8.924970679768434e-05,
+        0.00029743281940661356,
+        0.0008336626946634626
+      ],
+      "bootstrap_probability_positive_mse_gain": 0.92445,
+      "n": 1460
+    },
+    "excluding_524_1299": {
+      "baseline_rmse": 0.116486597746783,
+      "candidate_rmse": 0.11639719519381292,
+      "rmse_gain": 8.940255297007482e-05,
+      "paired_mse_gain_ci95": [
+        -0.0001946789266634466,
+        1.8997936705774227e-05,
+        0.00024522932762902376
+      ],
+      "bootstrap_probability_positive_mse_gain": 0.57045,
+      "n": 1458
+    }
+  },
+  "original_seed42_fold_scores": [
+    {
+      "fold": 1,
+      "baseline_rmse": 0.1290235148536763,
+      "candidate_rmse": 0.12973798617194968
+    },
+    {
+      "fold": 2,
+      "baseline_rmse": 0.11039502834623402,
+      "candidate_rmse": 0.10933303881464516
+    },
+    {
+      "fold": 3,
+      "baseline_rmse": 0.14767278583614668,
+      "candidate_rmse": 0.14181837100428807
+    },
+    {
+      "fold": 4,
+      "baseline_rmse": 0.12142105709245633,
+      "candidate_rmse": 0.12205460137092866
+    },
+    {
+      "fold": 5,
+      "baseline_rmse": 0.10682628874737907,
+      "candidate_rmse": 0.10679148417219866
+    }
+  ],
+  "test_candidate": {
+    "rows": 1459,
+    "mean_abs_dollar_delta": 1879.9917531348815,
+    "p95_abs_dollar_delta": 4979.58425160139,
+    "max_abs_dollar_delta": 74667.84934032301,
+    "largest_changes": [
+      {
+        "Id": 2683,
+        "Neighborhood": "NoRidge",
+        "OverallQual": 9,
+        "GrLivArea": 3500,
+        "champion_price": 542660.601221345,
+        "candidate_price": 617328.450561668,
+        "dollar_delta": 74667.84934032301,
+        "log_delta": 0.12891691343919476
+      },
+      {
+        "Id": 1975,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 10,
+        "GrLivArea": 2470,
+        "champion_price": 480203.9140299941,
+        "candidate_price": 514905.6635445998,
+        "dollar_delta": 34701.749514605675,
+        "log_delta": 0.06977273136940276
+      },
+      {
+        "Id": 2550,
+        "Neighborhood": "Edwards",
+        "OverallQual": 10,
+        "GrLivArea": 5095,
+        "champion_price": 261369.2821722875,
+        "candidate_price": 233516.21809267005,
+        "dollar_delta": -27853.06407961744,
+        "log_delta": -0.11268229400634588
+      },
+      {
+        "Id": 1979,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 9,
+        "GrLivArea": 1866,
+        "champion_price": 328943.3542509054,
+        "candidate_price": 304132.6686091671,
+        "dollar_delta": -24810.685641738295,
+        "log_delta": -0.0784212963057378
+      },
+      {
+        "Id": 2264,
+        "Neighborhood": "StoneBr",
+        "OverallQual": 9,
+        "GrLivArea": 2338,
+        "champion_price": 458373.1585795898,
+        "candidate_price": 479815.9619842517,
+        "dollar_delta": 21442.803404661885,
+        "log_delta": 0.04571891124765948
+      },
+      {
+        "Id": 1706,
+        "Neighborhood": "Somerst",
+        "OverallQual": 9,
+        "GrLivArea": 2490,
+        "champion_price": 434089.5448302109,
+        "candidate_price": 450967.2609261813,
+        "dollar_delta": 16877.71609597036,
+        "log_delta": 0.03814382115821857
+      },
+      {
+        "Id": 2631,
+        "Neighborhood": "StoneBr",
+        "OverallQual": 10,
+        "GrLivArea": 2698,
+        "champion_price": 441885.4689990777,
+        "candidate_price": 457288.672752567,
+        "dollar_delta": 15403.203753489302,
+        "log_delta": 0.03426405570216673
+      },
+      {
+        "Id": 2292,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 10,
+        "GrLivArea": 2046,
+        "champion_price": 452030.4750814808,
+        "candidate_price": 466910.8678255323,
+        "dollar_delta": 14880.392744051467,
+        "log_delta": 0.03238870745555289
+      },
+      {
+        "Id": 2189,
+        "Neighborhood": "Edwards",
+        "OverallQual": 5,
+        "GrLivArea": 3820,
+        "champion_price": 236659.46865414348,
+        "candidate_price": 250362.5743429252,
+        "dollar_delta": 13703.10568878171,
+        "log_delta": 0.05628766652866801
+      },
+      {
+        "Id": 1476,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 9,
+        "GrLivArea": 2334,
+        "champion_price": 387703.8967338948,
+        "candidate_price": 374093.5401310781,
+        "dollar_delta": -13610.356602816726,
+        "log_delta": -0.03573592824102256
+      },
+      {
+        "Id": 2289,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 8,
+        "GrLivArea": 2122,
+        "champion_price": 370855.5116796851,
+        "candidate_price": 383426.2460481248,
+        "dollar_delta": 12570.734368439706,
+        "log_delta": 0.033334665549951126
+      },
+      {
+        "Id": 2629,
+        "Neighborhood": "StoneBr",
+        "OverallQual": 10,
+        "GrLivArea": 3390,
+        "champion_price": 502132.75885856856,
+        "candidate_price": 514618.6433070024,
+        "dollar_delta": 12485.884448433819,
+        "log_delta": 0.024561535001732082
+      },
+      {
+        "Id": 1630,
+        "Neighborhood": "StoneBr",
+        "OverallQual": 8,
+        "GrLivArea": 2522,
+        "champion_price": 362007.0695009116,
+        "candidate_price": 373155.1859079863,
+        "dollar_delta": 11148.116407074733,
+        "log_delta": 0.03033055796083417
+      },
+      {
+        "Id": 2752,
+        "Neighborhood": "NAmes",
+        "OverallQual": 7,
+        "GrLivArea": 2039,
+        "champion_price": 157689.58302442127,
+        "candidate_price": 146600.55371491725,
+        "dollar_delta": -11089.029309504025,
+        "log_delta": -0.07291638996819394
+      },
+      {
+        "Id": 1665,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 9,
+        "GrLivArea": 1736,
+        "champion_price": 297820.3679229432,
+        "candidate_price": 287431.6608751104,
+        "dollar_delta": -10388.70704783278,
+        "log_delta": -0.035505260511515147
+      },
+      {
+        "Id": 1991,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 7,
+        "GrLivArea": 1358,
+        "champion_price": 246008.2376709195,
+        "candidate_price": 256359.60184187797,
+        "dollar_delta": 10351.364170958463,
+        "log_delta": 0.04121596754160706
+      },
+      {
+        "Id": 2632,
+        "Neighborhood": "StoneBr",
+        "OverallQual": 9,
+        "GrLivArea": 2795,
+        "champion_price": 461475.9052833626,
+        "candidate_price": 471736.2866043871,
+        "dollar_delta": 10260.381321024499,
+        "log_delta": 0.02199022448346888
+      },
+      {
+        "Id": 1678,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 10,
+        "GrLivArea": 2492,
+        "champion_price": 430937.0173903674,
+        "candidate_price": 440945.2081390965,
+        "dollar_delta": 10008.190748729103,
+        "log_delta": 0.02295862239550317
+      },
+      {
+        "Id": 1969,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 9,
+        "GrLivArea": 1950,
+        "champion_price": 396976.1152995703,
+        "candidate_price": 406835.02608182566,
+        "dollar_delta": 9858.910782255349,
+        "log_delta": 0.024531584999044398
+      },
+      {
+        "Id": 2660,
+        "Neighborhood": "NridgHt",
+        "OverallQual": 8,
+        "GrLivArea": 2358,
+        "champion_price": 365515.7092856584,
+        "candidate_price": 356110.0871466853,
+        "dollar_delta": -9405.622138973093,
+        "log_delta": -0.026069269660959904
+      }
+    ]
+  },
+  "decision": "REJECT_FOR_PROMOTION; outlier-excluded RMSE gain is only 0.000089 and paired bootstrap interval crosses zero; largest test shift is +$74,668.",
+  "candidate_status": "Preserved in experiments/shadow_candidates/phase6_leaf_residual.csv; not promoted."
+}

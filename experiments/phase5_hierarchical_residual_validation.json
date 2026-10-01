@@ -1,0 +1,107 @@
+{
+  "experiment_id": "P5-SHRUNK-HIERARCHICAL-RESIDUAL",
+  "hypothesis": "A ridge-shrunk additive market hierarchy can capture stable residual structure while suppressing singleton cell effects.",
+  "residual_target_firewall": "Every outer-training residual comes from an inner OOF XGBoost model trained without that row; outer validation labels are never used to fit encoders or residual effects.",
+  "model_base": "Regularized XGBoost; phase-two fixed parameters",
+  "group_features": {
+    "parents": [
+      "Neighborhood",
+      "OverallQual",
+      "OverallCond",
+      "YrSold",
+      "SaleType",
+      "SaleCondition"
+    ],
+    "interactions": [
+      "Neighborhood\u00d7Quality",
+      "Neighborhood\u00d7Quality\u00d7SaleCondition",
+      "SaleType\u00d7Quality"
+    ],
+    "size_features": [
+      "Quality\u00d7AreaQuartile",
+      "Neighborhood\u00d7AreaQuartile"
+    ]
+  },
+  "ridge_alphas": [
+    10.0,
+    50.0,
+    200.0
+  ],
+  "onehot_min_frequency": [
+    2,
+    5
+  ],
+  "discovery_seeds": [
+    19,
+    43,
+    89
+  ],
+  "confirmation_seeds": [
+    2024,
+    2025,
+    2029
+  ],
+  "outer_splits": 5,
+  "inner_splits": 4,
+  "candidate_config_count": 18,
+  "selected_on_discovery_only": {
+    "representation": "hierarchy",
+    "ridge_alpha": 10.0,
+    "minimum_frequency": 2
+  },
+  "baseline": {
+    "discovery": {
+      "pooled_rmse": 0.12500198588118935,
+      "mean_fold_rmse": 0.12473469494952803,
+      "fold_rmse_std": 0.008170211141044569,
+      "worst_fold_rmse": 0.13635928901659133
+    },
+    "confirmation": {
+      "pooled_rmse": 0.1235017527853854,
+      "mean_fold_rmse": 0.12277304450023098,
+      "fold_rmse_std": 0.013396360894166511,
+      "worst_fold_rmse": 0.1398364642150103
+    }
+  },
+  "selected_discovery": {
+    "pooled_rmse": 0.12197179179168999,
+    "mean_fold_rmse": 0.12173655603048124,
+    "fold_rmse_std": 0.0075715862745443525,
+    "worst_fold_rmse": 0.13168617612469743,
+    "median_fold_rmse": 0.12082861178194755
+  },
+  "selected_confirmation": {
+    "pooled_rmse": 0.12150223116779886,
+    "mean_fold_rmse": 0.12099489376821497,
+    "fold_rmse_std": 0.011091792495877988,
+    "worst_fold_rmse": 0.1351371211982062,
+    "median_fold_rmse": 0.12195472984116766
+  },
+  "confirmation_pooled_gain": 0.0019995216175865416,
+  "confirmation_worst_fold_change": -0.004699343016804108,
+  "confirmation_by_seed": {
+    "2024": {
+      "base_rmse": 0.12445933472897155,
+      "corrected_rmse": 0.1227967727421107
+    },
+    "2025": {
+      "base_rmse": 0.12382527675198853,
+      "corrected_rmse": 0.12114223564271454
+    },
+    "2029": {
+      "base_rmse": 0.12220975271762319,
+      "corrected_rmse": 0.12055657544848868
+    }
+  },
+  "shadow_gate": "Pooled confirmation gain >=0.0003, worst fold <=base+0.01, and at least two of three seeds improve",
+  "shadow_gate_passed": true,
+  "shadow_candidate_written": true,
+  "shadow_candidate_path": "experiments/shadow_candidates/phase5_hierarchical_residual_xgb.csv",
+  "protected_external_champion": 0.12654,
+  "champion_matched_validation": false,
+  "external_score": null,
+  "oof_path": "experiments/phase5_hierarchical_residual_oof.csv",
+  "runtime_seconds": 175.0,
+  "decision": "SHADOW_ONLY_XGB",
+  "caveat": "This experiment challenges regularized XGBoost, not the protected CatBoost/XGBoost ensemble; it cannot promote root submission.csv."
+}

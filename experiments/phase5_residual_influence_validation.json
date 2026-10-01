@@ -1,0 +1,105 @@
+{
+  "experiment_id": "P5-RESIDUAL-INFLUENCE-ABLATION",
+  "hypothesis": "The champion-transfer hierarchy may depend on the two extreme Edwards residuals; winsorization or excluding them from residual fitting should reveal that dependence.",
+  "base_model": "Regularized XGBoost with nested inner-OOF residual labels",
+  "residual_hierarchy": {
+    "representation": "hierarchy",
+    "ridge_alpha": 10.0,
+    "min_frequency": 2
+  },
+  "variants": [
+    "all_residuals",
+    "exclude_524_1299",
+    "winsorize_2_98"
+  ],
+  "seeds": [
+    2024,
+    2025,
+    2029
+  ],
+  "outer_splits": 5,
+  "inner_splits": 4,
+  "metrics": {
+    "all_residuals": {
+      "baseline_pooled_rmse": 0.1235017527853854,
+      "corrected_pooled_rmse": 0.12150223116779886,
+      "pooled_gain": 0.0019995216175865416,
+      "mean_fold_rmse": 0.12099489376821497,
+      "fold_rmse_std": 0.011091792495877988,
+      "worst_fold_rmse": 0.1351371211982062
+    },
+    "exclude_524_1299": {
+      "baseline_pooled_rmse": 0.1235017527853854,
+      "corrected_pooled_rmse": 0.12297092538224902,
+      "pooled_gain": 0.000530827403136383,
+      "mean_fold_rmse": 0.12237193441263532,
+      "fold_rmse_std": 0.01212262997357981,
+      "worst_fold_rmse": 0.13881472612968415
+    },
+    "winsorize_2_98": {
+      "baseline_pooled_rmse": 0.1235017527853854,
+      "corrected_pooled_rmse": 0.12168425767528962,
+      "pooled_gain": 0.001817495110095782,
+      "mean_fold_rmse": 0.12106005182198548,
+      "fold_rmse_std": 0.012309444294705905,
+      "worst_fold_rmse": 0.13711605060900137
+    }
+  },
+  "per_seed": {
+    "all_residuals": {
+      "2024": {
+        "baseline_rmse": 0.12445933472897155,
+        "corrected_rmse": 0.1227967727421107
+      },
+      "2025": {
+        "baseline_rmse": 0.12382527675198853,
+        "corrected_rmse": 0.12114223564271454
+      },
+      "2029": {
+        "baseline_rmse": 0.12220975271762319,
+        "corrected_rmse": 0.12055657544848868
+      }
+    },
+    "exclude_524_1299": {
+      "2024": {
+        "baseline_rmse": 0.12445933472897155,
+        "corrected_rmse": 0.12411556397548089
+      },
+      "2025": {
+        "baseline_rmse": 0.12382527675198853,
+        "corrected_rmse": 0.12271890588394972
+      },
+      "2029": {
+        "baseline_rmse": 0.12220975271762319,
+        "corrected_rmse": 0.12206941625892447
+      }
+    },
+    "winsorize_2_98": {
+      "2024": {
+        "baseline_rmse": 0.12445933472897155,
+        "corrected_rmse": 0.12284377642566767
+      },
+      "2025": {
+        "baseline_rmse": 0.12382527675198853,
+        "corrected_rmse": 0.12161147144051897
+      },
+      "2029": {
+        "baseline_rmse": 0.12220975271762319,
+        "corrected_rmse": 0.12058703207854174
+      }
+    }
+  },
+  "validation_influence": {
+    "all_rows": {
+      "baseline_rmse": 0.1235017527853854,
+      "corrected_rmse": 0.12150223116779886
+    },
+    "excluding_524_1299_from_validation": {
+      "baseline_rmse": 0.11990892880286379,
+      "corrected_rmse": 0.11945154515074004
+    }
+  },
+  "oof_path": "experiments/phase5_residual_influence_oof.csv",
+  "decision": "REVIEW; do not promote without champion-transfer stability",
+  "external_score": null
+}

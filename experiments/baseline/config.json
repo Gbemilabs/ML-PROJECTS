@@ -1,0 +1,43 @@
+{
+  "experiment_id": "BASELINE_0",
+  "seed": 42,
+  "target_transform": "log1p(SalePrice)",
+  "validation": {
+    "type": "KFold",
+    "n_splits": 5,
+    "shuffle": true,
+    "random_state": 42
+  },
+  "ensemble": {
+    "CatBoost": 0.7,
+    "XGBoost": 0.3
+  },
+  "catboost": {
+    "loss_function": "RMSE",
+    "iterations": 3500,
+    "learning_rate": 0.04,
+    "depth": 6,
+    "l2_leaf_reg": 3,
+    "random_seed": 42,
+    "categorical_features": "native categorical columns"
+  },
+  "xgboost": {
+    "objective": "reg:squarederror",
+    "n_estimators": 3000,
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_alpha": 0.5,
+    "reg_lambda": 0.5,
+    "min_child_weight": 1,
+    "random_state": 42,
+    "categorical_features": "one-hot encoded"
+  },
+  "preprocessing": {
+    "numeric_missing": "median imputation",
+    "categorical_missing": "Missing category; semantic absence retained",
+    "numeric_scaling": "StandardScaler for XGBoost branch"
+  },
+  "features": "Original columns plus TotalSF, TotalBath, HouseAge, RemodelAge, GarageAge, HasPool, HasGarage, HasBasement, HasFireplace, TotalPorchSF, LotFrontagePerLotArea"
+}

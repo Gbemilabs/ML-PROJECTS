@@ -1,0 +1,141 @@
+{
+  "experiment_id": "P5-WINSORIZED-CHAMPION-TRANSFER",
+  "hypothesis": "A robustly fit, ridge-shrunk hierarchy transfers residual information to the protected champion without depending on extreme residual labels.",
+  "champion_oof": "experiments/champion/oof_seed42.csv",
+  "correction_oof": "Nested XGBoost residuals; discovery residuals generated in this run; confirmation residual variants from phase5_residual_influence_oof.csv",
+  "group_representation": "hierarchy",
+  "ridge_alpha": 10.0,
+  "minimum_frequency": 2,
+  "winsor_quantiles": [
+    0.02,
+    0.98
+  ],
+  "discovery_seeds": [
+    19,
+    43,
+    89
+  ],
+  "confirmation_seeds": [
+    2024,
+    2025,
+    2029
+  ],
+  "selected_variant_and_scale_on_discovery_only": {
+    "variant": "all_residuals",
+    "scale": 0.75
+  },
+  "discovery_by_config": {
+    "all_residuals|scale=0": {
+      "pooled_rmse": 0.12546557634663488,
+      "mean_fold_rmse": 0.12478035178160324,
+      "fold_rmse_std": 0.013094833227369276,
+      "worst_fold_rmse": 0.14404424608359773,
+      "median_fold_rmse": 0.12287725919995607
+    },
+    "all_residuals|scale=0.25": {
+      "pooled_rmse": 0.12374320458458297,
+      "mean_fold_rmse": 0.12308339902947482,
+      "fold_rmse_std": 0.012761565899725507,
+      "worst_fold_rmse": 0.14179152118250785,
+      "median_fold_rmse": 0.11977910792081074
+    },
+    "all_residuals|scale=0.5": {
+      "pooled_rmse": 0.1227992139277834,
+      "mean_fold_rmse": 0.1221735029520833,
+      "fold_rmse_std": 0.012380715556816765,
+      "worst_fold_rmse": 0.14020233474509972,
+      "median_fold_rmse": 0.11735860840577439
+    },
+    "all_residuals|scale=0.75": {
+      "pooled_rmse": 0.12265157817676836,
+      "mean_fold_rmse": 0.1220660285878689,
+      "fold_rmse_std": 0.011970559470530032,
+      "worst_fold_rmse": 0.13929939840492603,
+      "median_fold_rmse": 0.11702216275312978
+    },
+    "all_residuals|scale=1": {
+      "pooled_rmse": 0.12330315788645964,
+      "mean_fold_rmse": 0.12276004573866563,
+      "fold_rmse_std": 0.011560273137513864,
+      "worst_fold_rmse": 0.13909607709508393,
+      "median_fold_rmse": 0.11855345741049876
+    },
+    "winsorize_2_98|scale=0": {
+      "pooled_rmse": 0.12546557634663488,
+      "mean_fold_rmse": 0.12478035178160324,
+      "fold_rmse_std": 0.013094833227369276,
+      "worst_fold_rmse": 0.14404424608359773,
+      "median_fold_rmse": 0.12287725919995607
+    },
+    "winsorize_2_98|scale=0.25": {
+      "pooled_rmse": 0.12429035688756998,
+      "mean_fold_rmse": 0.12359333581714137,
+      "fold_rmse_std": 0.01314458659794328,
+      "worst_fold_rmse": 0.14283526922324213,
+      "median_fold_rmse": 0.12122495252781082
+    },
+    "winsorize_2_98|scale=0.5": {
+      "pooled_rmse": 0.12365340037395993,
+      "mean_fold_rmse": 0.12295039031723717,
+      "fold_rmse_std": 0.013166812252092885,
+      "worst_fold_rmse": 0.14210111666814387,
+      "median_fold_rmse": 0.12005963457437151
+    },
+    "winsorize_2_98|scale=0.75": {
+      "pooled_rmse": 0.12356303118005502,
+      "mean_fold_rmse": 0.12285970778902336,
+      "fold_rmse_std": 0.013164910801028502,
+      "worst_fold_rmse": 0.14184916109221188,
+      "median_fold_rmse": 0.11939556543179503
+    },
+    "winsorize_2_98|scale=1": {
+      "pooled_rmse": 0.12402044414660328,
+      "mean_fold_rmse": 0.12332195026215136,
+      "fold_rmse_std": 0.013144091823333039,
+      "worst_fold_rmse": 0.14208196777483248,
+      "median_fold_rmse": 0.11924111995158924
+    }
+  },
+  "confirmation_baseline": {
+    "pooled_rmse": 0.12546557634663488,
+    "mean_fold_rmse": 0.12423729119991783,
+    "fold_rmse_std": 0.01751303295549015,
+    "worst_fold_rmse": 0.14700468652427515,
+    "median_fold_rmse": 0.12349673641431835
+  },
+  "confirmation_candidate": {
+    "pooled_rmse": 0.12478179446842158,
+    "mean_fold_rmse": 0.12364575480940518,
+    "fold_rmse_std": 0.016799510361074684,
+    "worst_fold_rmse": 0.1459441633401069,
+    "median_fold_rmse": 0.1236586437555852
+  },
+  "confirmation_gain": 0.000683781878213302,
+  "confirmation_worst_fold_change": -0.0010605231841682439,
+  "confirmation_by_seed": {
+    "2024": {
+      "base": 0.12546557634663488,
+      "candidate": 0.12479578463430877
+    },
+    "2025": {
+      "base": 0.12546557634663488,
+      "candidate": 0.12467695950907808
+    },
+    "2029": {
+      "base": 0.12546557634663488,
+      "candidate": 0.12487256142706912
+    }
+  },
+  "confirmation_seeds_improved": 3,
+  "shadow_gate": "Pooled confirmation gain >=0.0003, worst fold <=baseline+0.01, and at least two of three seeds improve",
+  "shadow_gate_passed": true,
+  "shadow_candidate_written": true,
+  "shadow_candidate_path": "experiments/shadow_candidates/phase5_winsorized_champion_transfer.csv",
+  "components_path": "experiments/phase5_winsorized_champion_test_components.csv",
+  "external_champion_score": 0.12654,
+  "external_score": null,
+  "decision": "SHADOW_ONLY_ROBUST_TRANSFER",
+  "caveat": "The protected champion OOF is one fixed seed-42 crossfit; corrections are outer-fold cross-fitted. This is not repeated retraining of the full champion and remains unsubmitted.",
+  "runtime_seconds": 69.88,
+  "oof_path": "experiments/phase5_winsorized_champion_transfer_oof.csv"
+}

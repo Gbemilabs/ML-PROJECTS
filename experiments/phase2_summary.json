@@ -1,0 +1,47 @@
+{
+  "public_kaggle_baseline": 0.127417,
+  "baseline_reported_local_cv": 0.124471,
+  "baseline_cv_std": 0.015763,
+  "baseline_fold_scores": [
+    0.132718,
+    0.110525,
+    0.149752,
+    0.123313,
+    0.106049
+  ],
+  "baseline_cv_to_public_gap": 0.002946000000000004,
+  "baseline_reproduced": true,
+  "best_nested_blend": "XGBoost_regularized+GradientBoosting+Baseline_ensemble",
+  "best_nested_blend_cv": 0.12357082685974234,
+  "best_nested_blend_std": 0.016616660441163285,
+  "best_nested_blend_fold_scores": [
+    0.13185478,
+    0.11001656,
+    0.15099804,
+    0.12057038,
+    0.10441437
+  ],
+  "best_nested_blend_worst_fold": 0.15099804494810207,
+  "candidate_kaggle_score": null,
+  "selection_decision": "INVESTIGATE; not promoted without repeated blend validation or Kaggle confirmation",
+  "primary_candidate_rmse": {
+    "XGBoost_regularized": 0.12911217097860792,
+    "LightGBM_regularized": 0.1316567541225685,
+    "ExtraTrees": 0.14029200987335624,
+    "RandomForest": 0.14277813340737774,
+    "GradientBoosting": 0.1309456321972343,
+    "Ridge": 0.14803712067971958,
+    "Ridge_log_skew": 0.14004174761000124,
+    "ElasticNet": 0.14589380481382938,
+    "SVR_RBF": 0.14824307300743586,
+    "Baseline_ensemble": 0.12546557634663486
+  },
+  "baseline_oof_rmse": 0.12546557634663486,
+  "features": 99,
+  "test_submission": "experiments/FINAL_A_submission.csv",
+  "final_weights": {
+    "XGBoost_regularized": 0.17277422947431892,
+    "GradientBoosting": 0.17244774296262172,
+    "Baseline_ensemble": 0.6547780275630595
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "experiment_id": "P4-HIERARCHICAL-RESIDUAL-CONFIRM2",
+  "frozen_config_from_discovery": {
+    "group": "Neighborhood_x_OverallQual",
+    "shrinkage": 5.0
+  },
+  "new_confirmation_seeds": [
+    2029,
+    2030
+  ],
+  "outer_splits": 5,
+  "inner_splits": 4,
+  "new_seed_base": {
+    "pooled_rmse": 0.12373441414262308,
+    "mean_fold_rmse": 0.12297668935027797,
+    "fold_rmse_std": 0.01367256814440479,
+    "worst_fold_rmse": 0.1398364642150103,
+    "median_fold_rmse": 0.126899678143778
+  },
+  "new_seed_corrected": {
+    "pooled_rmse": 0.12204504098992149,
+    "mean_fold_rmse": 0.12150934528062389,
+    "fold_rmse_std": 0.011422392030819909,
+    "worst_fold_rmse": 0.1363475937325585,
+    "median_fold_rmse": 0.12426394291895883
+  },
+  "per_seed": {
+    "2029": {
+      "base": {
+        "pooled_rmse": 0.12220975271762319,
+        "mean_fold_rmse": 0.12150948273835065,
+        "fold_rmse_std": 0.013064044701434324,
+        "worst_fold_rmse": 0.1398364642150103,
+        "median_fold_rmse": 0.12662069174653665
+      },
+      "corrected": {
+        "pooled_rmse": 0.11984984957015468,
+        "mean_fold_rmse": 0.11941800966456642,
+        "fold_rmse_std": 0.010164910709997635,
+        "worst_fold_rmse": 0.13303253735997067,
+        "median_fold_rmse": 0.12181135981461375
+      }
+    },
+    "2030": {
+      "base": {
+        "pooled_rmse": 0.12524051591690974,
+        "mean_fold_rmse": 0.12444389596220529,
+        "fold_rmse_std": 0.014103318222373932,
+        "worst_fold_rmse": 0.13958155264371233,
+        "median_fold_rmse": 0.12717866454101934
+      },
+      "corrected": {
+        "pooled_rmse": 0.12420143967955656,
+        "mean_fold_rmse": 0.12360068089668137,
+        "fold_rmse_std": 0.012201200774975829,
+        "worst_fold_rmse": 0.1363475937325585,
+        "median_fold_rmse": 0.12742785776967266
+      }
+    }
+  },
+  "combined_confirmation_seeds": [
+    2025,
+    2026,
+    2027,
+    2029,
+    2030
+  ],
+  "combined_base": {
+    "pooled_rmse": 0.1238661187296518,
+    "mean_fold_rmse": 0.12306569703902628,
+    "fold_rmse_std": 0.014058790184322123,
+    "worst_fold_rmse": 0.14093626842978443,
+    "median_fold_rmse": 0.1268540715494746
+  },
+  "combined_corrected": {
+    "pooled_rmse": 0.12216536737035213,
+    "mean_fold_rmse": 0.12157303210522662,
+    "fold_rmse_std": 0.012015608576956945,
+    "worst_fold_rmse": 0.1365318307517597,
+    "median_fold_rmse": 0.12556513358848842
+  },
+  "combined_pooled_gain": 0.0017007513592996598,
+  "combined_worst_fold_change": -0.004404437678024731,
+  "local_shadow_gate": "pooled RMSE gain >= 0.0003 and worst fold <= base worst + 0.01",
+  "local_shadow_gate_passed": true,
+  "existing_shadow_candidate": "experiments/shadow_candidates/hierarchical_residual_xgb.csv",
+  "external_champion_score": 0.12654,
+  "external_score": null,
+  "decision": "PROMISING_LOCAL_XGB_ONLY",
+  "caveat": "The experiment is XGBoost-only and has not been evaluated as a correction to the frozen CatBoost/XGBoost champion.",
+  "runtime_seconds": 52.79,
+  "oof_path": "experiments/hierarchical_residual_confirm_oof.csv"
+}

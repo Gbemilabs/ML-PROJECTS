@@ -1,0 +1,67 @@
+{
+  "experiment_id": "P5-POOLED-CHAMPION-HIERARCHY",
+  "hypothesis": "Pooling sparse categories at the encoder level and regularizing additive group effects should transfer the XGB residual structure to the protected champion without singleton-driven corrections.",
+  "champion_oof": "experiments/champion/oof_seed42.csv",
+  "outer_residual_firewall": "Residual targets are generated from inner OOF XGBoost predictions in each outer training partition; outer validation labels never fit the residual model.",
+  "discovery_seeds": [
+    19,
+    43,
+    89
+  ],
+  "confirmation_seeds": [
+    2024,
+    2025,
+    2029
+  ],
+  "outer_splits": 5,
+  "inner_splits": 4,
+  "candidate_configs": 32,
+  "selected_config_from_discovery_only": {
+    "representation": "hierarchy",
+    "ridge_alpha": 10.0,
+    "minimum_frequency": 5,
+    "scale": 0.75
+  },
+  "confirmation_baseline": {
+    "pooled_rmse": 0.12546557634663488,
+    "mean_fold_rmse": 0.12423729119991785,
+    "fold_rmse_std": 0.017513032955490178,
+    "worst_fold_rmse": 0.1470046865242752,
+    "median_fold_rmse": 0.12349673641431821
+  },
+  "confirmation_candidate": {
+    "pooled_rmse": 0.12359512804403365,
+    "mean_fold_rmse": 0.12259237894523317,
+    "fold_rmse_std": 0.015711915884748896,
+    "worst_fold_rmse": 0.14336292933218636,
+    "median_fold_rmse": 0.1241707423238841
+  },
+  "confirmation_gain": 0.0018704483026012325,
+  "confirmation_worst_fold_change": -0.0036417571920888403,
+  "confirmation_by_seed": {
+    "2024": {
+      "base_rmse": 0.12546557634663486,
+      "candidate_rmse": 0.12355634357924827
+    },
+    "2025": {
+      "base_rmse": 0.12546557634663486,
+      "candidate_rmse": 0.12317388871409482
+    },
+    "2029": {
+      "base_rmse": 0.12546557634663486,
+      "candidate_rmse": 0.12405357765513159
+    }
+  },
+  "confirmation_seeds_improved": 3,
+  "shadow_gate": "Pooled gain >=0.0003, worst fold <=base+0.01, and >=2/3 confirmation seeds improve",
+  "shadow_gate_passed": true,
+  "shadow_candidate_written": true,
+  "shadow_candidate_path": "experiments/shadow_candidates/phase5_pooled_hierarchy_champion.csv",
+  "components_path": "experiments/phase5_pooled_hierarchy_test_components.csv",
+  "external_champion_score": 0.12654,
+  "external_score": null,
+  "oof_path": "experiments/phase5_pooled_champion_transfer_oof.csv",
+  "decision": "SHADOW_ONLY",
+  "caveat": "Champion prediction remains one fixed seed-42 OOF crossfit; repeated seeds vary the leakage-safe residual learner rather than retraining the full champion.",
+  "runtime_seconds": 136.96
+}

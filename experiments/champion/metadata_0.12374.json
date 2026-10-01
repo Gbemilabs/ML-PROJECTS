@@ -1,0 +1,49 @@
+{
+  "status": "user_reported_external_champion",
+  "score_metric": "public Kaggle RMSLE",
+  "public_score": 0.12374,
+  "approximate_rank": 759,
+  "leaderboard_size_reported": 3775,
+  "score_source": "user-provided in Phase 6 directive; not independently queried through Kaggle API",
+  "artifact_source": "Root submission.csv / submissions/candidates/phase5_support_floor_hierarchy.csv, locally promoted in Phase 5; now frozen as 0.12374 champion per user report",
+  "submission_artifact": "experiments/champion/submission_0.12374.csv",
+  "submission_sha256": "52e1309c46960f1d2c411dae3a9148de6db21a00ed264629097edd9cf7a756f8",
+  "submission_id": null,
+  "rows": 1459,
+  "columns": [
+    "Id",
+    "SalePrice"
+  ],
+  "prediction_mean": 176078.8211821731,
+  "prediction_min": 44992.73000658223,
+  "prediction_max": 542660.601221345,
+  "local_oof_artifact": "experiments/champion/oof_0.12374_crossfit.csv",
+  "local_oof_sha256": "2a43378ce8d26aacb1f2286a00b83d48b6afea68e45c4971129e422ce1ee3518",
+  "local_validation": {
+    "metric": "log-price RMSE / RMSLE-equivalent",
+    "seed42_champion_transfer_confirmation_pooled_rmse": 0.12406963982689305,
+    "row_averaged_five_seed_oof_rmse": 0.12393249002449601,
+    "outlier_excluded_oof_rmse_base": 0.11769231642207555,
+    "outlier_excluded_oof_rmse_candidate": 0.11666846142293517,
+    "discovery_seeds": [
+      2031,
+      2032
+    ],
+    "confirmation_seeds": [
+      2033,
+      2034,
+      2035
+    ],
+    "leakage_control": "inner-OOF XGBoost residuals; residual hierarchy fitted on outer-train rows only"
+  },
+  "model": {
+    "parent_champion": "0.12654 external system; SHA-256 d2b9ca662c95e40e88e74f32ea1f5970181c6c7614f3fc40d06399c6d1a14008",
+    "prediction": "champion log-price prediction + 0.5 * support-pooled Ridge residual hierarchy correction",
+    "groups": "Neighborhood/quality/condition/type hierarchy; one-hot min_frequency=10",
+    "ridge_alpha": 10.0,
+    "residual_base": "regularized XGBoost inner-OOF residuals",
+    "target_transform": "log1p(SalePrice)",
+    "blend_space": "log target space; inverse transform with expm1"
+  },
+  "notes": "Candidate is reported by user as RMSLE 0.12374 / approximately #759. Hash verifies exact archived bytes. Kaggle submission ID/API evidence unavailable; do not infer reproducible model state beyond the documented Phase 5 pipeline."
+}

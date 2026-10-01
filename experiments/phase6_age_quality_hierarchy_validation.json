@@ -1,0 +1,85 @@
+{
+  "experiment_id": "P6-AGE-QUALITY-RESIDUAL-HIERARCHY",
+  "hypothesis": "Residual errors among old low-quality homes arise from a quality-dependent age/renovation valuation curve, not merely neighborhood singleton effects.",
+  "features": [
+    "quality\u00d7house-age-band",
+    "quality\u00d7remodel-age-band",
+    "neighborhood\u00d7house-age-band"
+  ],
+  "residual_firewall": "Nested inner-OOF XGBoost residuals; group boundaries are fitted within outer training data; outer-validation targets never enter the residual fit.",
+  "discovery_seeds": [
+    2021,
+    2022
+  ],
+  "confirmation_seeds": [
+    2023,
+    2024,
+    2025
+  ],
+  "representation_options": [
+    "base_hierarchy",
+    "quality_age",
+    "quality_remodel",
+    "neighborhood_age",
+    "all_age_interactions"
+  ],
+  "ridge_alphas": [
+    10.0,
+    50.0
+  ],
+  "min_frequency": [
+    10,
+    20
+  ],
+  "correction_scales": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "selected_on_discovery_only": {
+    "representation": "base_hierarchy",
+    "alpha": 50.0,
+    "min_frequency": 20,
+    "scale": 0.25
+  },
+  "baseline_confirmation": {
+    "pooled_rmse": 0.12393249002449602,
+    "mean_fold_rmse": 0.12277910196700094,
+    "fold_rmse_std": 0.016868734506435036,
+    "worst_fold_rmse": 0.14485097573375344,
+    "median_fold_rmse": 0.12140407432633654
+  },
+  "candidate_confirmation": {
+    "pooled_rmse": 0.12443832132929246,
+    "mean_fold_rmse": 0.12266673378281336,
+    "fold_rmse_std": 0.016745732464345558,
+    "worst_fold_rmse": 0.14463470337280496,
+    "median_fold_rmse": 0.12125571249656389
+  },
+  "confirmation_gain": -0.0005058313047964363,
+  "confirmation_worst_fold_change": -0.0002162723609484829,
+  "confirmation_by_seed": {
+    "2023": {
+      "base_rmse": 0.12393249002449602,
+      "candidate_rmse": 0.12436947719625933
+    },
+    "2024": {
+      "base_rmse": 0.12393249002449602,
+      "candidate_rmse": 0.1248121274114694
+    },
+    "2025": {
+      "base_rmse": 0.12393249002449602,
+      "candidate_rmse": 0.12413240285561614
+    }
+  },
+  "confirmation_seeds_improved": 0,
+  "shadow_gate_passed": false,
+  "shadow_candidate_written": false,
+  "shadow_candidate_path": null,
+  "protected_external_champion": 0.12374,
+  "external_score": null,
+  "decision": "REJECT",
+  "caveat": "Champion base OOF is one saved crossfit; this tests transfer of a nested XGB residual correction, not repeated refits of the full CatBoost/XGBoost champion.",
+  "oof_path": "experiments/phase6_age_quality_hierarchy_oof.csv",
+  "runtime_seconds": 137.5
+}

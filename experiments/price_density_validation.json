@@ -1,0 +1,411 @@
+{
+  "experiment_id": "P4-PRICE-DENSITY-NESTED",
+  "hypothesis": "Log price can be decomposed into a property-specific area term plus learnable price density.",
+  "target_firewall": "Area target form is selected from inner OOF predictions inside each outer training fold; outer validation labels are never used for selection.",
+  "base_model": "XGBoost_regularized, fixed phase-two parameters",
+  "target_candidates": [
+    "direct",
+    "GrLivArea",
+    "TotalSF",
+    "UsableArea"
+  ],
+  "development_seeds": [
+    42,
+    117,
+    314
+  ],
+  "confirmation_seeds": [
+    2026,
+    2027
+  ],
+  "outer_splits": 5,
+  "inner_splits": 4,
+  "selection_counts_by_outer_fold": {
+    "direct": 24,
+    "GrLivArea": 0,
+    "TotalSF": 0,
+    "UsableArea": 1
+  },
+  "fold_records": [
+    {
+      "seed": 42,
+      "fold": 1,
+      "selected_target": "direct",
+      "selected_rmse": 0.1358191051254814,
+      "direct_rmse": 0.1358191051254814,
+      "inner_scores": {
+        "direct": 0.13091370771557237,
+        "GrLivArea": 0.14529573382729505,
+        "TotalSF": 0.1464549472785302,
+        "UsableArea": 0.14483173598486868
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 2,
+      "selected_target": "direct",
+      "selected_rmse": 0.11713472646555802,
+      "direct_rmse": 0.11713472646555802,
+      "inner_scores": {
+        "direct": 0.13039509055636717,
+        "GrLivArea": 0.1375787329528403,
+        "TotalSF": 0.13649569274210915,
+        "UsableArea": 0.13368017381577837
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 3,
+      "selected_target": "UsableArea",
+      "selected_rmse": 0.1889321939469179,
+      "direct_rmse": 0.15575687603815927,
+      "inner_scores": {
+        "direct": 0.12197375195704556,
+        "GrLivArea": 0.12379137036768526,
+        "TotalSF": 0.12013656733067106,
+        "UsableArea": 0.12007180690435808
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 4,
+      "selected_target": "direct",
+      "selected_rmse": 0.12181959578791844,
+      "direct_rmse": 0.12181959578791844,
+      "inner_scores": {
+        "direct": 0.1289198053716163,
+        "GrLivArea": 0.13991355958742538,
+        "TotalSF": 0.1363011841406636,
+        "UsableArea": 0.1339836861631864
+      }
+    },
+    {
+      "seed": 42,
+      "fold": 5,
+      "selected_target": "direct",
+      "selected_rmse": 0.10991893222598359,
+      "direct_rmse": 0.10991893222598359,
+      "inner_scores": {
+        "direct": 0.12998389954348225,
+        "GrLivArea": 0.13729204734475148,
+        "TotalSF": 0.13567157152307394,
+        "UsableArea": 0.1350357642111887
+      }
+    },
+    {
+      "seed": 117,
+      "fold": 1,
+      "selected_target": "direct",
+      "selected_rmse": 0.10748706810107847,
+      "direct_rmse": 0.10748706810107847,
+      "inner_scores": {
+        "direct": 0.1306129898975768,
+        "GrLivArea": 0.13799655368190358,
+        "TotalSF": 0.13528756127771635,
+        "UsableArea": 0.13350363254762682
+      }
+    },
+    {
+      "seed": 117,
+      "fold": 2,
+      "selected_target": "direct",
+      "selected_rmse": 0.12366857002588082,
+      "direct_rmse": 0.12366857002588082,
+      "inner_scores": {
+        "direct": 0.13038760122338236,
+        "GrLivArea": 0.13341395230291847,
+        "TotalSF": 0.13187875356386408,
+        "UsableArea": 0.1308241916749961
+      }
+    },
+    {
+      "seed": 117,
+      "fold": 3,
+      "selected_target": "direct",
+      "selected_rmse": 0.14948876941936695,
+      "direct_rmse": 0.14948876941936695,
+      "inner_scores": {
+        "direct": 0.12586016448339085,
+        "GrLivArea": 0.13529323635600382,
+        "TotalSF": 0.13217418600825165,
+        "UsableArea": 0.13172558090601655
+      }
+    },
+    {
+      "seed": 117,
+      "fold": 4,
+      "selected_target": "direct",
+      "selected_rmse": 0.12347085070989339,
+      "direct_rmse": 0.12347085070989339,
+      "inner_scores": {
+        "direct": 0.12657077006228373,
+        "GrLivArea": 0.13593414423222855,
+        "TotalSF": 0.13288325368274176,
+        "UsableArea": 0.1308396037645103
+      }
+    },
+    {
+      "seed": 117,
+      "fold": 5,
+      "selected_target": "direct",
+      "selected_rmse": 0.13142396138095236,
+      "direct_rmse": 0.13142396138095236,
+      "inner_scores": {
+        "direct": 0.12939759786712604,
+        "GrLivArea": 0.13816500996056327,
+        "TotalSF": 0.13938820358774476,
+        "UsableArea": 0.13607629920708766
+      }
+    },
+    {
+      "seed": 314,
+      "fold": 1,
+      "selected_target": "direct",
+      "selected_rmse": 0.10989401534841756,
+      "direct_rmse": 0.10989401534841756,
+      "inner_scores": {
+        "direct": 0.1300530286223978,
+        "GrLivArea": 0.13654125075532736,
+        "TotalSF": 0.13438905181822994,
+        "UsableArea": 0.13107821100135117
+      }
+    },
+    {
+      "seed": 314,
+      "fold": 2,
+      "selected_target": "direct",
+      "selected_rmse": 0.13061634705000041,
+      "direct_rmse": 0.13061634705000041,
+      "inner_scores": {
+        "direct": 0.12796332893504858,
+        "GrLivArea": 0.13981160675896692,
+        "TotalSF": 0.1370202480515253,
+        "UsableArea": 0.13651506107757472
+      }
+    },
+    {
+      "seed": 314,
+      "fold": 3,
+      "selected_target": "direct",
+      "selected_rmse": 0.1322939776955278,
+      "direct_rmse": 0.1322939776955278,
+      "inner_scores": {
+        "direct": 0.13106711065447474,
+        "GrLivArea": 0.13582607569878036,
+        "TotalSF": 0.13598769087358958,
+        "UsableArea": 0.13211302897970384
+      }
+    },
+    {
+      "seed": 314,
+      "fold": 4,
+      "selected_target": "direct",
+      "selected_rmse": 0.12153729956538473,
+      "direct_rmse": 0.12153729956538473,
+      "inner_scores": {
+        "direct": 0.12679616267289492,
+        "GrLivArea": 0.13353601727903608,
+        "TotalSF": 0.13032871478560543,
+        "UsableArea": 0.12962952277071302
+      }
+    },
+    {
+      "seed": 314,
+      "fold": 5,
+      "selected_target": "direct",
+      "selected_rmse": 0.13155125232881545,
+      "direct_rmse": 0.13155125232881545,
+      "inner_scores": {
+        "direct": 0.12561469928225785,
+        "GrLivArea": 0.1343189864255878,
+        "TotalSF": 0.13014892250289356,
+        "UsableArea": 0.13074951728402107
+      }
+    },
+    {
+      "seed": 2026,
+      "fold": 1,
+      "selected_target": "direct",
+      "selected_rmse": 0.13196234821470965,
+      "direct_rmse": 0.13196234821470965,
+      "inner_scores": {
+        "direct": 0.127580886739291,
+        "GrLivArea": 0.1383542273121367,
+        "TotalSF": 0.13599800821069577,
+        "UsableArea": 0.13480232791106986
+      }
+    },
+    {
+      "seed": 2026,
+      "fold": 2,
+      "selected_target": "direct",
+      "selected_rmse": 0.13404646335312115,
+      "direct_rmse": 0.13404646335312115,
+      "inner_scores": {
+        "direct": 0.1280029280553129,
+        "GrLivArea": 0.1343143986250073,
+        "TotalSF": 0.13305430003683114,
+        "UsableArea": 0.13257585901974409
+      }
+    },
+    {
+      "seed": 2026,
+      "fold": 3,
+      "selected_target": "direct",
+      "selected_rmse": 0.1125844765739131,
+      "direct_rmse": 0.1125844765739131,
+      "inner_scores": {
+        "direct": 0.13139156513742348,
+        "GrLivArea": 0.14021076863883705,
+        "TotalSF": 0.14010791169790296,
+        "UsableArea": 0.13565291047129477
+      }
+    },
+    {
+      "seed": 2026,
+      "fold": 4,
+      "selected_target": "direct",
+      "selected_rmse": 0.12072279784084274,
+      "direct_rmse": 0.12072279784084274,
+      "inner_scores": {
+        "direct": 0.12903211554703548,
+        "GrLivArea": 0.13557877473501023,
+        "TotalSF": 0.13503937782139053,
+        "UsableArea": 0.131755735625814
+      }
+    },
+    {
+      "seed": 2026,
+      "fold": 5,
+      "selected_target": "direct",
+      "selected_rmse": 0.12168332031766192,
+      "direct_rmse": 0.12168332031766192,
+      "inner_scores": {
+        "direct": 0.12736564871011805,
+        "GrLivArea": 0.1374857073001876,
+        "TotalSF": 0.13732005470522238,
+        "UsableArea": 0.1368877912463795
+      }
+    },
+    {
+      "seed": 2027,
+      "fold": 1,
+      "selected_target": "direct",
+      "selected_rmse": 0.13729766897218684,
+      "direct_rmse": 0.13729766897218684,
+      "inner_scores": {
+        "direct": 0.12752018932036147,
+        "GrLivArea": 0.13872139472675418,
+        "TotalSF": 0.13864635566470485,
+        "UsableArea": 0.13520522811284097
+      }
+    },
+    {
+      "seed": 2027,
+      "fold": 2,
+      "selected_target": "direct",
+      "selected_rmse": 0.09673637942064234,
+      "direct_rmse": 0.09673637942064234,
+      "inner_scores": {
+        "direct": 0.14156266267850462,
+        "GrLivArea": 0.1502681458024932,
+        "TotalSF": 0.150789915837053,
+        "UsableArea": 0.14839150674290916
+      }
+    },
+    {
+      "seed": 2027,
+      "fold": 3,
+      "selected_target": "direct",
+      "selected_rmse": 0.10654201937852004,
+      "direct_rmse": 0.10654201937852004,
+      "inner_scores": {
+        "direct": 0.13438657882307653,
+        "GrLivArea": 0.14313870685745014,
+        "TotalSF": 0.14362282054190226,
+        "UsableArea": 0.13904877348784692
+      }
+    },
+    {
+      "seed": 2027,
+      "fold": 4,
+      "selected_target": "direct",
+      "selected_rmse": 0.1409362684297844,
+      "direct_rmse": 0.1409362684297844,
+      "inner_scores": {
+        "direct": 0.12165536946929931,
+        "GrLivArea": 0.12938577868919865,
+        "TotalSF": 0.1256404918758495,
+        "UsableArea": 0.1276408491716594
+      }
+    },
+    {
+      "seed": 2027,
+      "fold": 5,
+      "selected_target": "direct",
+      "selected_rmse": 0.13016689637123963,
+      "direct_rmse": 0.13016689637123963,
+      "inner_scores": {
+        "direct": 0.12521300862712245,
+        "GrLivArea": 0.13145518821112925,
+        "TotalSF": 0.13113290335967331,
+        "UsableArea": 0.12973696637143411
+      }
+    }
+  ],
+  "metrics": {
+    "development": {
+      "historical_champion_oof": {
+        "pooled_rmse": 0.12546557634663488,
+        "mean_fold_rmse": 0.12472442810241595,
+        "fold_rmse_std": 0.013617190698471492,
+        "worst_fold_rmse": 0.14975214689345576,
+        "median_fold_rmse": 0.12331277474511827
+      },
+      "direct_xgb": {
+        "pooled_rmse": 0.1274826570461977,
+        "mean_fold_rmse": 0.12679208981789458,
+        "fold_rmse_std": 0.013251181349955687,
+        "worst_fold_rmse": 0.15575687603815927,
+        "median_fold_rmse": 0.12366857002588082
+      },
+      "nested_price_density_selection": {
+        "pooled_rmse": 0.13043838575864242,
+        "mean_fold_rmse": 0.12900377767847848,
+        "fold_rmse_std": 0.01929242918872861,
+        "worst_fold_rmse": 0.1889321939469179,
+        "median_fold_rmse": 0.12366857002588082
+      }
+    },
+    "confirmation": {
+      "historical_champion_oof": {
+        "pooled_rmse": 0.12546557634663486,
+        "mean_fold_rmse": 0.12399280641659369,
+        "fold_rmse_std": 0.019167545615711552,
+        "worst_fold_rmse": 0.14906825620221956,
+        "median_fold_rmse": 0.12698201147794677
+      },
+      "direct_xgb": {
+        "pooled_rmse": 0.1240180777076433,
+        "mean_fold_rmse": 0.12326786388726219,
+        "fold_rmse_std": 0.013620474696957353,
+        "worst_fold_rmse": 0.1409362684297844,
+        "median_fold_rmse": 0.12592510834445078
+      },
+      "nested_price_density_selection": {
+        "pooled_rmse": 0.1240180777076433,
+        "mean_fold_rmse": 0.12326786388726219,
+        "fold_rmse_std": 0.013620474696957353,
+        "worst_fold_rmse": 0.1409362684297844,
+        "median_fold_rmse": 0.12592510834445078
+      }
+    }
+  },
+  "shadow_candidate_gate": "On confirmation: nested-selected target beats direct XGBoost by >=0.0003 pooled, worst fold no >0.01 worse, and pooled RMSE is below champion seed-42 OOF.",
+  "eligible_for_shadow_submission": false,
+  "external_champion_score": 0.12654,
+  "external_score": null,
+  "runtime_seconds": 439.89,
+  "oof_path": "experiments/price_density_nested_oof.csv",
+  "decision": "REJECT"
+}

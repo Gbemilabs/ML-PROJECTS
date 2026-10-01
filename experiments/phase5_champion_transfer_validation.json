@@ -1,0 +1,99 @@
+{
+  "experiment_id": "P5-CHAMPION-RESIDUAL-TRANSFER",
+  "hypothesis": "A leakage-safe XGBoost residual hierarchy transfers to the protected champion's OOF residuals.",
+  "base_oof": "experiments/champion/oof_seed42.csv; saved champion OOF predictions are cross-fitted at seed 42",
+  "correction_oof": "Inner-OOF residual hierarchy predictions from phase5_hierarchical_residual_oof.csv; each correction model excludes its outer validation targets",
+  "group_representation": "hierarchy",
+  "ridge_alpha": 10.0,
+  "minimum_frequency": 2,
+  "discovery_seeds": [
+    19,
+    43,
+    89
+  ],
+  "confirmation_seeds": [
+    2024,
+    2025,
+    2029
+  ],
+  "selected_scale_on_discovery_only": 0.75,
+  "discovery_by_scale": {
+    "0.0": {
+      "pooled_rmse": 0.12546557634663488,
+      "mean_fold_rmse": 0.12478035178160324,
+      "fold_rmse_std": 0.013094833227369276,
+      "worst_fold_rmse": 0.14404424608359773,
+      "median_fold_rmse": 0.12287725919995607
+    },
+    "0.25": {
+      "pooled_rmse": 0.12374320367606342,
+      "mean_fold_rmse": 0.12308339811668069,
+      "fold_rmse_std": 0.012761565893980552,
+      "worst_fold_rmse": 0.14179151987118702,
+      "median_fold_rmse": 0.1197790984343163
+    },
+    "0.5": {
+      "pooled_rmse": 0.12279921217174233,
+      "mean_fold_rmse": 0.12217350119471634,
+      "fold_rmse_std": 0.012380715481151508,
+      "worst_fold_rmse": 0.14020233272553478,
+      "median_fold_rmse": 0.11735859025187569
+    },
+    "0.75": {
+      "pooled_rmse": 0.12265157565212065,
+      "mean_fold_rmse": 0.122066026071388,
+      "fold_rmse_std": 0.01197055926375616,
+      "worst_fold_rmse": 0.13929939631130164,
+      "median_fold_rmse": 0.11702216602740349
+    },
+    "1.0": {
+      "pooled_rmse": 0.12330315468737035,
+      "mean_fold_rmse": 0.12276004256547676,
+      "fold_rmse_std": 0.011560272712177414,
+      "worst_fold_rmse": 0.13909607557517834,
+      "median_fold_rmse": 0.11855347228877136
+    }
+  },
+  "confirmation_baseline": {
+    "pooled_rmse": 0.12546557634663488,
+    "mean_fold_rmse": 0.12423729119991785,
+    "fold_rmse_std": 0.017513032955490178,
+    "worst_fold_rmse": 0.1470046865242752,
+    "median_fold_rmse": 0.12349673641431821
+  },
+  "confirmation_candidate": {
+    "pooled_rmse": 0.12340286462688335,
+    "mean_fold_rmse": 0.12243724055683192,
+    "fold_rmse_std": 0.015407437260926167,
+    "worst_fold_rmse": 0.1437996565931575,
+    "median_fold_rmse": 0.123981830435609
+  },
+  "confirmation_gain": 0.002062711719751531,
+  "confirmation_worst_fold_change": -0.003205029931117709,
+  "confirmation_by_seed": {
+    "2024": {
+      "baseline_rmse": 0.12546557634663486,
+      "candidate_rmse": 0.12344530038830055
+    },
+    "2025": {
+      "baseline_rmse": 0.12546557634663486,
+      "candidate_rmse": 0.1230845731871375
+    },
+    "2029": {
+      "baseline_rmse": 0.12546557634663486,
+      "candidate_rmse": 0.12367799581875968
+    }
+  },
+  "confirmation_seeds_improved": 3,
+  "shadow_gate": "Pooled champion-OOF gain >=0.0003, worst fold <=baseline+0.01, and at least two of three seeds improve",
+  "shadow_gate_passed": true,
+  "shadow_candidate_written": true,
+  "shadow_candidate_path": "experiments/shadow_candidates/phase5_champion_residual_transfer.csv",
+  "components_path": "experiments/phase5_champion_transfer_test_components.csv",
+  "external_champion_score": 0.12654,
+  "external_score": null,
+  "decision": "SHADOW_ONLY_CHAMPION_TRANSFER",
+  "caveat": "The correction is estimated from regularized-XGBoost residuals and transferred to the champion; confirmation uses the champion's fixed seed-42 OOF predictions and is not an independent repeated OOF of the full CatBoost/XGBoost pipeline.",
+  "runtime_seconds": 6.89,
+  "oof_path": "experiments/phase5_champion_transfer_oof.csv"
+}

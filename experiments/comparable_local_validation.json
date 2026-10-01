@@ -1,0 +1,58 @@
+{
+  "experiment_id": "P4-COMPARABLE-LOCALITY",
+  "hypothesis": "Continuous, fold-local comparable homes provide local market information beyond broad group means.",
+  "target_firewall": "Validation targets are excluded from neighbor target means; no validation row can be its own comparable.",
+  "model_base": "Preserved baseline OOF predictions for validation; canonicalized baseline test predictions for inference.",
+  "discovery_seeds": [
+    42,
+    117,
+    314
+  ],
+  "confirmation_seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "n_splits": 5,
+  "n_repeats_per_seed": 2,
+  "candidate_config_count": 72,
+  "selected_config_from_discovery_only": "neighborhood|bw=0.65|k=10|mix=0.5|target=log_price_per_living_sf",
+  "discovery_baseline": {
+    "pooled_rmse": 0.12546557634663488,
+    "mean_fold_rmse": 0.12472983660896057,
+    "fold_rmse_std": 0.013567560852830743,
+    "worst_fold_rmse": 0.14975214689345576
+  },
+  "discovery_selected": {
+    "pooled_rmse": 0.13524490617166626,
+    "mean_fold_rmse": 0.13469917273071258,
+    "fold_rmse_std": 0.012137442524868135,
+    "worst_fold_rmse": 0.16100295386106467,
+    "median_fold_rmse": 0.1340341255267096
+  },
+  "confirmation_baseline": {
+    "pooled_rmse": 0.12546557634663488,
+    "mean_fold_rmse": 0.12421159064106051,
+    "fold_rmse_std": 0.017694394547733996,
+    "worst_fold_rmse": 0.1558011445982158
+  },
+  "confirmation_selected": {
+    "pooled_rmse": 0.13539780679831795,
+    "mean_fold_rmse": 0.13450825847705888,
+    "fold_rmse_std": 0.015494982648049046,
+    "worst_fold_rmse": 0.16029807157290504,
+    "median_fold_rmse": 0.13116371170787755
+  },
+  "confirmation_pooled_gain": -0.009932230451683066,
+  "shadow_eligibility_gate": "confirmation pooled RMSE gain >= 0.0003 and worst fold no more than 0.01 worse",
+  "eligible_for_shadow_submission": false,
+  "shadow_submission_written": false,
+  "shadow_submission_path": null,
+  "external_champion_score": 0.12654,
+  "external_champion_local_oof_available": false,
+  "external_score": null,
+  "runtime_seconds": 8.7,
+  "oof_path": "experiments/comparable_local_oof.csv",
+  "decision": "REJECT",
+  "caveat": "The external champion's exact artifact and OOF predictions are unavailable; this experiment only challenges the historical local baseline."
+}

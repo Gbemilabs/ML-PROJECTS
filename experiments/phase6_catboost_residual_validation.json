@@ -1,0 +1,109 @@
+{
+  "experiment_id": "P6-NATIVE-CATBOOST-RESIDUAL",
+  "hypothesis": "Native-categorical CatBoost can model nonlinear feature interactions in the champion residuals beyond the XGBoost residual hierarchy.",
+  "residual_firewall": "Outer training residual targets are built from inner-OOF XGBoost predictions; outer validation rows do not contribute to residual fit.",
+  "residual_model": {
+    "loss_function": "RMSE",
+    "iterations": 600,
+    "learning_rate": 0.03,
+    "depth": 4,
+    "l2_leaf_reg": 10.0,
+    "random_strength": 0.5,
+    "verbose": false,
+    "allow_writing_files": false,
+    "thread_count": 4,
+    "random_seed": "seed\u00d7fold+fold",
+    "categorical_features": "all non-numeric columns"
+  },
+  "discovery_seeds": [
+    23,
+    47,
+    83
+  ],
+  "confirmation_seeds": [
+    2036,
+    2037,
+    2041
+  ],
+  "outer_splits": 5,
+  "inner_splits": 4,
+  "selected_scale_on_discovery_only": 0.0,
+  "discovery_metrics_by_scale": {
+    "0.0": {
+      "pooled_rmse": 0.12393249002449602,
+      "mean_fold_rmse": 0.12302776408635448,
+      "fold_rmse_std": 0.014947620131115015,
+      "worst_fold_rmse": 0.14863094173282856,
+      "median_fold_rmse": 0.12101869888774199
+    },
+    "0.25": {
+      "pooled_rmse": 0.12428357046531285,
+      "mean_fold_rmse": 0.12333353102280831,
+      "fold_rmse_std": 0.015337731678848941,
+      "worst_fold_rmse": 0.1494925513433206,
+      "median_fold_rmse": 0.12207975170918431
+    },
+    "0.5": {
+      "pooled_rmse": 0.1249427715047296,
+      "mean_fold_rmse": 0.12395036732122587,
+      "fold_rmse_std": 0.015716316114670514,
+      "worst_fold_rmse": 0.15056614025542123,
+      "median_fold_rmse": 0.12430127336567998
+    },
+    "0.75": {
+      "pooled_rmse": 0.12590525356275595,
+      "mean_fold_rmse": 0.12487031424055761,
+      "fold_rmse_std": 0.016110167477908693,
+      "worst_fold_rmse": 0.15184721233274912,
+      "median_fold_rmse": 0.12547110606396053
+    },
+    "1.0": {
+      "pooled_rmse": 0.12716413039007018,
+      "mean_fold_rmse": 0.1260819844839406,
+      "fold_rmse_std": 0.01655443283396128,
+      "worst_fold_rmse": 0.15333056711748885,
+      "median_fold_rmse": 0.1268758558835063
+    }
+  },
+  "baseline_confirmation": {
+    "pooled_rmse": 0.12393249002449602,
+    "mean_fold_rmse": 0.12311789587788728,
+    "fold_rmse_std": 0.014186112866938343,
+    "worst_fold_rmse": 0.14400075109092542,
+    "median_fold_rmse": 0.11705946366655201
+  },
+  "candidate_confirmation": {
+    "pooled_rmse": 0.12393249002449602,
+    "mean_fold_rmse": 0.12311789587788728,
+    "fold_rmse_std": 0.014186112866938343,
+    "worst_fold_rmse": 0.14400075109092542,
+    "median_fold_rmse": 0.11705946366655201
+  },
+  "confirmation_gain": 0.0,
+  "confirmation_worst_fold_change": 0.0,
+  "confirmation_by_seed": {
+    "2036": {
+      "base_rmse": 0.12393249002449602,
+      "candidate_rmse": 0.12393249002449602
+    },
+    "2037": {
+      "base_rmse": 0.12393249002449602,
+      "candidate_rmse": 0.12393249002449602
+    },
+    "2041": {
+      "base_rmse": 0.12393249002449602,
+      "candidate_rmse": 0.12393249002449602
+    }
+  },
+  "confirmation_seeds_improved": 0,
+  "shadow_gate_passed": false,
+  "shadow_candidate_written": false,
+  "shadow_candidate_path": null,
+  "components_path": null,
+  "current_external_champion": 0.12374,
+  "external_score": null,
+  "decision": "REJECT",
+  "caveat": "Candidate evaluated by transfer to champion's fixed crossfit OOF; not repeated retraining of the full champion.",
+  "oof_path": "experiments/phase6_catboost_residual_oof.csv",
+  "runtime_seconds": 285.3
+}

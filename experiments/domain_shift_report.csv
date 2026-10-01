@@ -1,0 +1,2 @@
+model,validation_scheme,mean_auc,std_auc,pooled_oof_auc,fold_scores
+LogisticRegression_onehot,StratifiedKFold5_train_vs_test,0.9999906173766184,1.1491319866696073e-05,0.9999920193038955,"[1.0, 0.99997654, 1.0, 0.99997654, 1.0]"

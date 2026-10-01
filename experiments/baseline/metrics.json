@@ -1,0 +1,10 @@
+{
+  "public_kaggle_score": 0.127417,
+  "local_cv_rmse_mean": 0.124471,
+  "local_cv_rmse_std": 0.015763,
+  "fold_scores": [0.132718, 0.110525, 0.149752, 0.123313, 0.106049],
+  "architecture": "70% CatBoost + 30% XGBoost",
+  "target_transform": "log1p(SalePrice)",
+  "validation": "5-fold shuffled KFold, random_state=42",
+  "artifacts": ["train.py", "submission.csv", "oof_predictions.csv", "experiments.csv", "data/"]
+}

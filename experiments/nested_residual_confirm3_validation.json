@@ -1,0 +1,41 @@
+{
+  "experiment_id": "P4-RESIDUAL-CONFIRM3",
+  "hypothesis": "The fixed shallow Huber residual correction improves XGBoost across fresh outer split seeds.",
+  "seeds": [
+    2029,
+    2030
+  ],
+  "outer_splits": 5,
+  "inner_splits": 4,
+  "baseline_pooled_rmse": 0.12373441414262308,
+  "corrected_pooled_rmse": 0.12359044818002368,
+  "pooled_gain": 0.00014396596259939887,
+  "baseline_mean_fold_rmse": 0.12297668935027797,
+  "corrected_mean_fold_rmse": 0.12270155622579193,
+  "baseline_fold_rmse_std": 0.01367256814440479,
+  "corrected_fold_rmse_std": 0.014796181301536607,
+  "baseline_worst_fold_rmse": 0.1398364642150103,
+  "corrected_worst_fold_rmse": 0.14210743336524875,
+  "per_seed": [
+    {
+      "seed": 2029,
+      "base_mean": 0.12150948273835065,
+      "corrected_mean": 0.12117975703307948,
+      "base_worst": 0.1398364642150103,
+      "corrected_worst": 0.14210743336524875
+    },
+    {
+      "seed": 2030,
+      "base_mean": 0.12444389596220531,
+      "corrected_mean": 0.12422335541850438,
+      "base_worst": 0.13958155264371233,
+      "corrected_worst": 0.14100101076524216
+    }
+  ],
+  "base_error_vs_correction_correlation": -0.07174253480497583,
+  "runtime_seconds": 62.65,
+  "oof_path": "experiments/nested_residual_confirm3_oof.csv",
+  "external_score": null,
+  "external_champion_oof_available": false,
+  "decision": "REJECT"
+}

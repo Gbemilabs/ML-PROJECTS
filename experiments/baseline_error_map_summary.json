@@ -1,0 +1,12 @@
+{
+  "experiment_id":"P4-BASELINE-ERROR-MAP",
+  "source":"Historical baseline OOF predictions, KFold5 seed42",
+  "rows":1460,
+  "pooled_log_rmse":0.1254655763,
+  "mean_log_error":0.0000486118,
+  "dollar_rmse":27618.4476790502,
+  "mean_abs_relative_error":0.0836591147,
+  "slice_count":451,
+  "output":"experiments\/baseline_error_map.csv",
+  "caveat":"Descriptive single-seed OOF map; subgroup patterns require confirmation before correction."
+}

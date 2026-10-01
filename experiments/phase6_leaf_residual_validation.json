@@ -1,0 +1,76 @@
+{
+  "experiment_id": "P6-TREE-LEAF-RESIDUAL-NEIGHBORS",
+  "hypothesis": "Properties sharing terminal leaves across a fitted tree ensemble have residual similarity beyond raw feature distance.",
+  "leaf_embedding": "outer-fold XGBoost terminal leaf IDs; validation labels are excluded from the fit",
+  "residual_target": "outer-training y_log minus inner-OOF XGBoost prediction",
+  "discovery_seeds": [
+    29,
+    59,
+    97
+  ],
+  "confirmation_seeds": [
+    2038,
+    2039,
+    2040
+  ],
+  "top_k": [
+    5,
+    15,
+    30
+  ],
+  "powers": [
+    1.0,
+    2.0
+  ],
+  "shrinkages": [
+    2.0,
+    5.0,
+    10.0
+  ],
+  "candidate_configs": 18,
+  "selected_on_discovery_only": {
+    "top_k": 5,
+    "power": 2.0,
+    "shrinkage": 10.0
+  },
+  "confirmation_baseline": {
+    "pooled_rmse": 0.12393249002449602,
+    "mean_fold_rmse": 0.12352097879113007,
+    "fold_rmse_std": 0.010091079335383186,
+    "worst_fold_rmse": 0.13856433397523849,
+    "median_fold_rmse": 0.12358684283252948
+  },
+  "confirmation_candidate": {
+    "pooled_rmse": 0.12294040747302484,
+    "mean_fold_rmse": 0.12257769784731508,
+    "fold_rmse_std": 0.00943672507206341,
+    "worst_fold_rmse": 0.13613066957494047,
+    "median_fold_rmse": 0.12331931036051882
+  },
+  "confirmation_gain": 0.0009920825514711795,
+  "confirmation_worst_fold_change": -0.002433664400298019,
+  "confirmation_by_seed": {
+    "2038": {
+      "base_rmse": 0.12393249002449601,
+      "candidate_rmse": 0.12332340801344992
+    },
+    "2039": {
+      "base_rmse": 0.12393249002449602,
+      "candidate_rmse": 0.12259033005297762
+    },
+    "2040": {
+      "base_rmse": 0.12393249002449602,
+      "candidate_rmse": 0.12290638462809941
+    }
+  },
+  "confirmation_seeds_improved": 3,
+  "shadow_gate_passed": true,
+  "shadow_candidate_written": true,
+  "shadow_candidate_path": "experiments/shadow_candidates/phase6_leaf_residual.csv",
+  "external_champion": 0.12374,
+  "external_score": null,
+  "decision": "SHADOW_ONLY",
+  "caveat": "Residual labels are inner-OOF, while leaf features are derived from the outer model; this is honest on outer validation but can still overfit training leaf partitions. Treat as candidate evidence only.",
+  "oof_path": "experiments/phase6_leaf_residual_oof.csv",
+  "runtime_seconds": 182.08
+}
